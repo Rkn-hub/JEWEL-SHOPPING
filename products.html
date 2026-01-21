@@ -60,6 +60,22 @@
             transform: translateY(0);
         }
 
+        /* On touch devices (mobile/tablet), always show Quick Add button */
+        @media (hover: none) and (pointer: coarse) {
+            .product-card .product-info {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Also show on small screens regardless of touch capability */
+        @media (max-width: 768px) {
+            .product-card .product-info {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Frosted glass utility */
         .frosted-glass {
             background: rgba(255, 255, 255, 0.7);
@@ -283,6 +299,7 @@
                             </div>
                             <div class="absolute bottom-4 left-4 right-4 product-info">
                                 <button
+                                    onclick="addToCart({id: 'bohemian-dreams', name: 'Bohemian Dreams Necklace', price: 1250, image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', description: 'Turquoise & Wood Beads'})"
                                     class="w-full rounded-lg bg-primary py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
                                     Quick Add
                                 </button>
@@ -310,6 +327,7 @@
                             </div>
                             <div class="absolute bottom-4 left-4 right-4 product-info">
                                 <button
+                                    onclick="addToCart({id: 'wire-wrapped', name: 'Wire-Wrapped Elegance', price: 850, image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80', description: 'Glass & Silver Wire'})"
                                     class="w-full rounded-lg bg-primary py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
                                     Quick Add
                                 </button>
@@ -337,6 +355,7 @@
                             </div>
                             <div class="absolute bottom-4 left-4 right-4 product-info">
                                 <button
+                                    onclick="addToCart({id: 'macrame-harmony', name: 'Macramé Harmony', price: 750, image: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=400&q=80', description: 'Stone & Cotton Cord'})"
                                     class="w-full rounded-lg bg-primary py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
                                     Quick Add
                                 </button>
@@ -363,6 +382,7 @@
                             </div>
                             <div class="absolute bottom-4 left-4 right-4 product-info">
                                 <button
+                                    onclick="addToCart({id: 'festival-statement', name: 'Festival Statement', price: 1650, image: 'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?auto=format&fit=crop&w=400&q=80', description: 'Multi-Color Beadwork'})"
                                     class="w-full rounded-lg bg-primary py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
                                     Quick Add
                                 </button>
@@ -389,6 +409,7 @@
                             </div>
                             <div class="absolute bottom-4 left-4 right-4 product-info">
                                 <button
+                                    onclick="addToCart({id: 'floral-seed', name: 'Floral Seed Bead Bracelet', price: 950, image: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=400&q=80', description: 'Seed Beads & Thread'})"
                                     class="w-full rounded-lg bg-primary py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
                                     Quick Add
                                 </button>
@@ -416,6 +437,7 @@
                             </div>
                             <div class="absolute bottom-4 left-4 right-4 product-info">
                                 <button
+                                    onclick="addToCart({id: 'pearl-crystal', name: 'Pearl Crystal Drops', price: 1450, image: 'https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?auto=format&fit=crop&w=400&q=80', description: 'Pearl & Crystal'})"
                                     class="w-full rounded-lg bg-primary py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
                                     Quick Add
                                 </button>
@@ -443,6 +465,7 @@
                             </div>
                             <div class="absolute bottom-4 left-4 right-4 product-info">
                                 <button
+                                    onclick="addToCart({id: 'multi-strand', name: 'Multi-Strand Bohemian', price: 2150, image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=400&q=80', description: 'Mixed Beads'})"
                                     class="w-full rounded-lg bg-primary py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
                                     Quick Add
                                 </button>
@@ -470,6 +493,7 @@
                             </div>
                             <div class="absolute bottom-4 left-4 right-4 product-info">
                                 <button
+                                    onclick="addToCart({id: 'geometric-anklet', name: 'Geometric Anklet', price: 650, image: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=400&q=80', description: 'Glass Beads'})"
                                     class="w-full rounded-lg bg-primary py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
                                     Quick Add
                                 </button>
