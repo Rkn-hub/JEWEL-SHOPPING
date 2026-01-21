@@ -92,7 +92,7 @@ function showSection(sectionName) {
         section.classList.add('hidden');
         section.classList.remove('active');
     });
-    
+
     // Show selected section
     const targetSection = document.getElementById(`${sectionName}-section`);
     if (targetSection) {
@@ -100,19 +100,19 @@ function showSection(sectionName) {
         targetSection.classList.add('active');
         targetSection.classList.add('slide-in');
     }
-    
+
     // Update navigation active state
     document.querySelectorAll('.nav-item').forEach(item => {
         item.classList.remove('active', 'bg-primary', 'text-white');
         item.classList.add('text-slate-700', 'dark:text-slate-300');
     });
-    
+
     const activeNavItem = document.querySelector(`[onclick="showSection('${sectionName}')"]`);
     if (activeNavItem) {
         activeNavItem.classList.add('active', 'bg-primary', 'text-white');
         activeNavItem.classList.remove('text-slate-700', 'dark:text-slate-300');
     }
-    
+
     // Update page title
     const titles = {
         dashboard: 'Dashboard',
@@ -122,11 +122,11 @@ function showSection(sectionName) {
         analytics: 'Analytics & Reports',
         settings: 'Settings'
     };
-    
+
     document.getElementById('pageTitle').textContent = titles[sectionName] || 'Dashboard';
-    
+
     // Load section-specific data
-    switch(sectionName) {
+    switch (sectionName) {
         case 'orders':
             loadOrdersTable();
             break;
@@ -155,7 +155,7 @@ function toggleSidebar() {
 function loadOrdersTable() {
     const tbody = document.getElementById('ordersTableBody');
     if (!tbody) return;
-    
+
     if (ordersData.length === 0) {
         tbody.innerHTML = `
             <tr>
@@ -177,7 +177,7 @@ function loadOrdersTable() {
         `;
         return;
     }
-    
+
     tbody.innerHTML = ordersData.map(order => `
         <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50">
             <td class="px-6 py-4 whitespace-nowrap">
@@ -239,10 +239,10 @@ function getStatusColor(status) {
 function viewOrderDetails(orderId) {
     const order = ordersData.find(o => o.id === orderId);
     if (!order) return;
-    
+
     const modal = document.getElementById('orderDetailsModal');
     const content = document.getElementById('orderDetailsContent');
-    
+
     content.innerHTML = `
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div>
@@ -320,7 +320,7 @@ function viewOrderDetails(orderId) {
             </button>
         </div>
     `;
-    
+
     modal.classList.remove('hidden');
 }
 
@@ -369,7 +369,7 @@ function exportOrders() {
 function loadProductsGrid() {
     const grid = document.getElementById('productsGrid');
     if (!grid) return;
-    
+
     grid.innerHTML = productsData.map(product => `
         <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-lg transition-shadow">
             <div class="aspect-square overflow-hidden">
@@ -409,11 +409,44 @@ function closeAddProductModal() {
     document.getElementById('addProductModal').classList.add('hidden');
 }
 
+// Image handling
+function previewImage(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const preview = document.getElementById('imagePreview');
+            const container = document.getElementById('imagePreviewContainer');
+            const uploadLabel = event.target.closest('label');
+
+            preview.src = e.target.result;
+            container.classList.remove('hidden');
+            uploadLabel.classList.add('hidden');
+        }
+        reader.readAsDataURL(file);
+    }
+}
+
+function removeImage() {
+    const fileInput = document.querySelector('input[type="file"]');
+    const preview = document.getElementById('imagePreview');
+    const container = document.getElementById('imagePreviewContainer');
+    const uploadLabel = container.previousElementSibling;
+
+    fileInput.value = '';
+    preview.src = '';
+    container.classList.add('hidden');
+    uploadLabel.classList.remove('hidden');
+}
+
 function addProduct(event) {
     event.preventDefault();
     const form = event.target;
-    const formData = new FormData(form);
-    
+
+    // Get image from preview if available
+    const imagePreview = document.getElementById('imagePreview');
+    const hasImage = imagePreview.src && !document.getElementById('imagePreviewContainer').classList.contains('hidden');
+
     const newProduct = {
         id: productsData.length + 1,
         name: form.elements[0].value,
@@ -421,22 +454,23 @@ function addProduct(event) {
         description: form.elements[2].value,
         category: form.elements[3].value.toLowerCase(),
         material: form.elements[4].value.toLowerCase(),
-        image: form.elements[5].value || 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+        image: hasImage ? imagePreview.src : 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
         stock: Math.floor(Math.random() * 50) + 10,
         sales: 0
     };
-    
+
     productsData.push(newProduct);
     loadProductsGrid();
     closeAddProductModal();
     form.reset();
+    removeImage(); // Reset upload field
     showNotification('Product added successfully!');
 }
 
 function editProduct(productId) {
     const product = productsData.find(p => p.id === productId);
     if (!product) return;
-    
+
     // In a real implementation, this would open an edit modal with pre-filled data
     const newName = prompt('Enter new product name:', product.name);
     if (newName) {
@@ -464,7 +498,7 @@ function deleteProduct(productId) {
 function loadUsersTable() {
     const tbody = document.getElementById('usersTableBody');
     if (!tbody) return;
-    
+
     if (usersData.length === 0) {
         tbody.innerHTML = `
             <tr>
@@ -486,7 +520,7 @@ function loadUsersTable() {
         `;
         return;
     }
-    
+
     tbody.innerHTML = usersData.map(user => `
         <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50">
             <td class="px-6 py-4 whitespace-nowrap">
@@ -537,14 +571,14 @@ function loadUsersTable() {
 function viewUserDetails(userId) {
     const user = usersData.find(u => u.id === userId);
     if (!user) return;
-    
+
     alert(`User Details:\nName: ${user.name}\nEmail: ${user.email}\nOrders: ${user.orders}\nTotal Spent: ₹${user.totalSpent}\nStatus: ${user.status}\nJoined: ${user.joined}`);
 }
 
 function editUser(userId) {
     const user = usersData.find(u => u.id === userId);
     if (!user) return;
-    
+
     const newName = prompt('Enter new user name:', user.name);
     if (newName) {
         user.name = newName;
@@ -760,13 +794,13 @@ function showNotification(message, duration = 3000) {
     // Remove existing notification
     const existing = document.querySelector('.vrinda-notification');
     if (existing) existing.remove();
-    
+
     const notification = document.createElement('div');
     notification.className = 'vrinda-notification fixed top-24 right-6 bg-primary text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-slide-in';
     notification.textContent = message;
-    
+
     document.body.appendChild(notification);
-    
+
     setTimeout(() => {
         notification.style.animation = 'slide-out 0.3s ease-out';
         setTimeout(() => notification.remove(), 300);
@@ -780,25 +814,40 @@ function showNotification(message, duration = 3000) {
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize charts
     initializeCharts();
-    
+
     // Load default section data
     loadOrdersTable();
-    
+
     // Set up theme toggle functionality (inherited from main.js)
     // The toggleDarkMode function is already available from main.js
-    
+
     // Update charts when theme changes
-    const originalToggleDarkMode = window.toggleDarkMode;
-    window.toggleDarkMode = function() {
-        originalToggleDarkMode();
-        
+    const originalToggleDarkMode = window.toggleDarkMode || function () {
+        // Fallback if main.js didn't export it
+        const html = document.documentElement;
+        if (html.classList.contains('dark')) {
+            html.classList.remove('dark');
+            html.classList.add('light');
+            localStorage.setItem('vrindaTheme', 'light');
+        } else {
+            html.classList.remove('light');
+            html.classList.add('dark');
+            localStorage.setItem('vrindaTheme', 'dark');
+        }
+    };
+
+    window.toggleDarkMode = function () {
+        if (typeof originalToggleDarkMode === 'function') {
+            originalToggleDarkMode();
+        }
+
         // Update chart colors after theme change
         setTimeout(() => {
             const isDark = document.documentElement.classList.contains('dark');
             const textColor = isDark ? '#e2e8f0' : '#334155';
             const gridColor = isDark ? '#334155' : '#e2e8f0';
             const tickColor = isDark ? '#94a3b8' : '#64748b';
-            
+
             [salesChart, ordersChart, revenueChart, topProductsChart].forEach(chart => {
                 if (chart) {
                     if (chart.options.plugins?.legend?.labels) {
@@ -817,7 +866,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, 100);
     };
-    
+
     // Close modals when clicking outside
     document.addEventListener('click', (e) => {
         if (e.target.classList.contains('fixed') && e.target.classList.contains('inset-0')) {
@@ -825,7 +874,7 @@ document.addEventListener('DOMContentLoaded', () => {
             closeOrderDetailsModal();
         }
     });
-    
+
     // Handle sidebar clicks on mobile
     document.addEventListener('click', (e) => {
         if (window.innerWidth < 1024 && !document.getElementById('sidebar').contains(e.target) && !e.target.closest('[onclick="toggleSidebar()"]')) {
@@ -842,7 +891,7 @@ function syncUsersFromAuth() {
     if (typeof usersDatabase !== 'undefined') {
         // Clear existing users data (except admin)
         usersData.length = 0;
-        
+
         // Add all customer users from auth system
         usersDatabase.forEach(user => {
             if (user.role === 'customer') {
@@ -858,10 +907,10 @@ function syncUsersFromAuth() {
                 });
             }
         });
-        
+
         // Update dashboard stats
         updateDashboardStats();
-        
+
         // Reload users table if we're on that section
         if (document.getElementById('users-section')?.classList.contains('active')) {
             loadUsersTable();
@@ -887,7 +936,7 @@ function updateDashboardStats() {
             }
         }
     }
-    
+
     // Update orders count
     const totalOrders = ordersData.length;
     if (userCountElements[0]) {
@@ -903,7 +952,7 @@ function updateDashboardStats() {
             }
         }
     }
-    
+
     // Update revenue
     const totalRevenue = ordersData.reduce((sum, order) => sum + order.total, 0);
     if (userCountElements[1]) {
@@ -932,15 +981,15 @@ function addNewOrder(orderData) {
         date: new Date().toISOString().split('T')[0],
         address: orderData.address
     };
-    
+
     ordersData.push(newOrder);
     updateDashboardStats();
-    
+
     // Reload orders table if we're on that section
     if (document.getElementById('orders-section')?.classList.contains('active')) {
         loadOrdersTable();
     }
-    
+
     return newOrder;
 }
 
@@ -948,7 +997,7 @@ function addNewOrder(orderData) {
 document.addEventListener('DOMContentLoaded', () => {
     // Sync users on page load
     setTimeout(syncUsersFromAuth, 1000);
-    
+
     // Set up periodic sync (every 30 seconds)
     setInterval(syncUsersFromAuth, 30000);
 });
