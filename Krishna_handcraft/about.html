@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>About Us - The Vrinda Creation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#E07A5F",
+                        "secondary": "#81B29A",
+                        "accent": "#3D5A80",
+                        "background-light": "#f8f9fa",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+    <!-- Floating Navigation Bar -->
+    <div
+        class="fixed top-0 left-0 w-full z-50 flex justify-center px-4 pt-6 transition-all duration-300 pointer-events-none">
+        <header
+            class="pointer-events-auto flex items-center justify-between gap-8 px-6 py-3 w-full max-w-[1024px] rounded-full bg-white/70 dark:bg-black/60 backdrop-blur-md border border-white/40 dark:border-white/10 shadow-sm hover:shadow-md transition-all duration-300">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <a class="flex items-center gap-2 text-slate-900 dark:text-white group" href="index.html">
+                    <img src="logo.png" alt="The Vrinda Creation Logo" class="h-10 w-10 object-contain">
+                    <span class="text-lg font-bold tracking-tight group-hover:text-primary transition-colors">The Vrinda
+                        Creation</span>
+                </a>
+            </div>
+            <!-- Nav Links (Desktop) -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="products.html">Collections</a>
+                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="product-detail.html">Featured</a>
+                <a class="text-sm font-medium text-primary dark:text-primary transition-colors"
+                    href="about.html">About</a>
+                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="contact.html">Contact</a>
+            </nav>
+            <!-- Icons -->
+            <div class="flex items-center gap-2">
+                <button onclick="toggleDarkMode()" 
+                    class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-900 dark:text-white transition-colors"
+                    title="Toggle theme">
+                    <span class="material-symbols-outlined !text-[20px] dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined !text-[20px] hidden dark:block">light_mode</span>
+                </button>
+                <a href="search.html"
+                    class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-900 dark:text-white transition-colors">
+                    <span class="material-symbols-outlined !text-[20px]">search</span>
+                </a>
+                <a href="cart.html"
+                    class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-900 dark:text-white transition-colors relative">
+                    <span class="material-symbols-outlined !text-[20px]">shopping_bag</span>
+                    <span class="absolute top-2 right-2 size-2 bg-primary rounded-full"></span>
+                </a>
+                <a href="profile.html"
+                    class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-900 dark:text-white transition-colors">
+                    <span class="material-symbols-outlined !text-[20px]">person</span>
+                </a>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-16 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="text-primary text-sm font-bold uppercase tracking-widest mb-3 block">Our Story</span>
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">Crafted with Love & Creativity</h1>
+            <p class="text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
+                Every piece tells a story of passion, tradition, and artisan craftsmanship
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-6xl mx-auto px-6 pb-20">
+        <!-- Founder Section -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+            <div class="relative">
+                <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800">
+                    <img class="w-full h-full object-cover"
+                        src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+                        alt="Rashika - Founder & Artisan" />
+                </div>
+            </div>
+            <div class="space-y-6">
+                <div
+                    class="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium">
+                    <span class="material-symbols-outlined text-sm">auto_awesome</span>
+                    <span>Meet the Artisan</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold">Rashika's Creative Journey</h2>
+                <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                    From a passion for traditional crafts to creating The Vrinda Creation, Rashika brings years of
+                    expertise in beadwork, wire art, and macramé to every piece. Each creation reflects her dedication
+                    to preserving artisan techniques while embracing contemporary aesthetics.
+                </p>
+                <div class="grid grid-cols-2 gap-6 pt-4">
+                    <div class="text-center p-4 bg-slate-50 dark:bg-slate-800 rounded-xl">
+                        <div class="text-3xl font-bold text-primary mb-1">500+</div>
+                        <div class="text-sm text-slate-600 dark:text-slate-400">Pieces Crafted</div>
+                    </div>
+                    <div class="text-center p-4 bg-slate-50 dark:bg-slate-800 rounded-xl">
+                        <div class="text-3xl font-bold text-primary mb-1">5+</div>
+                        <div class="text-sm text-slate-600 dark:text-slate-400">Years Experience</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Values</h2>
+                <p class="text-lg text-slate-600 dark:text-slate-300">What makes our jewelry special</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-sm">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/20 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-3xl">handyman</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Handcrafted</h3>
+                    <p class="text-slate-600 dark:text-slate-300">Every piece is meticulously handcrafted with attention
+                        to detail and care</p>
+                </div>
+                <div class="text-center p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-sm">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-secondary/20 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-secondary text-3xl">eco</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Sustainable</h3>
+                    <p class="text-slate-600 dark:text-slate-300">We use eco-friendly materials and sustainable
+                        practices in our craft</p>
+                </div>
+                <div class="text-center p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-sm">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-accent/20 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-accent text-3xl">favorite</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Made with Love</h3>
+                    <p class="text-slate-600 dark:text-slate-300">Each creation is infused with passion, creativity, and
+                        personal touch</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="bg-slate-50 dark:bg-slate-800 rounded-3xl p-8 md:p-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Craft Process</h2>
+                <p class="text-lg text-slate-600 dark:text-slate-300">From inspiration to creation</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div
+                        class="w-12 h-12 mx-auto mb-4 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                        1</div>
+                    <h4 class="font-bold mb-2">Design</h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-400">Sketching unique patterns and selecting
+                        materials</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-12 h-12 mx-auto mb-4 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                        2</div>
+                    <h4 class="font-bold mb-2">Craft</h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-400">Hand-stringing beads with precision and care
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-12 h-12 mx-auto mb-4 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                        3</div>
+                    <h4 class="font-bold mb-2">Finish</h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-400">Adding final touches and quality checks</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-12 h-12 mx-auto mb-4 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                        4</div>
+                    <h4 class="font-bold mb-2">Package</h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-400">Beautifully packaged and ready to delight</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-background-dark border-t border-slate-100 dark:border-slate-800">
+        <div class="max-w-[1440px] mx-auto px-6 md:px-20 py-16">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-10">
+                <!-- Brand -->
+                <div class="flex flex-col items-center md:items-start gap-4">
+                    <div class="flex items-center gap-2 text-slate-900 dark:text-white">
+                        <img src="logo.png" alt="The Vrinda Creation Logo" class="h-10 w-10 object-contain">
+                        <span class="text-lg font-bold tracking-tight">The Vrinda Creation</span>
+                    </div>
+                    <p class="text-slate-500 text-sm max-w-xs text-center md:text-left">
+                        Creating beautiful handcrafted beaded jewelry with love, creativity, and sustainable practices.
+                    </p>
+                </div>
+                <!-- Footer Links -->
+                <div
+                    class="flex flex-wrap items-center justify-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-400">
+                    <a class="hover:text-primary transition-colors" href="products.html">Shop</a>
+                    <a class="hover:text-primary transition-colors" href="about.html">About</a>
+                    <a class="hover:text-primary transition-colors" href="contact.html">Contact</a>
+                    <a class="hover:text-primary transition-colors" href="faq.html">FAQ</a>
+                    <a class="hover:text-primary transition-colors" href="order-confirmation.html">Track Order</a>
+                </div>
+                <!-- Socials -->
+                <div class="flex gap-4">
+                    <a class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 dark:bg-white/5 text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-white/10 transition-all"
+                        href="#">
+                        <span class="material-symbols-outlined !text-[20px]">thumb_up</span>
+                    </a>
+                    <a class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 dark:bg-white/5 text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-white/10 transition-all"
+                        href="#">
+                        <span class="material-symbols-outlined !text-[20px]">photo_camera</span>
+                    </a>
+                    <a class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 dark:bg-white/5 text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-white/10 transition-all"
+                        href="#">
+                        <span class="material-symbols-outlined !text-[20px]">alternate_email</span>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 text-center">
+                <p class="text-slate-400 text-xs font-normal">© 2024 The Vrinda Creation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+
+</html>

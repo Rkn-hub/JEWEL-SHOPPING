@@ -1,0 +1,71 @@
+<!-- Add this anywhere on a page to test cart functionality -->
+<div style="position: fixed; top: 10px; right: 10px; background: white; border: 2px solid red; padding: 10px; z-index: 9999;">
+    <h3>Cart Debug</h3>
+    <p>Cart Count: <span id="debug-cart-count">0</span></p>
+    <button onclick="debugAddToCart()" style="background: blue; color: white; padding: 5px;">Test Add</button>
+    <button onclick="debugShowCart()" style="background: green; color: white; padding: 5px;">Show Cart</button>
+    <button onclick="debugClearCart()" style="background: red; color: white; padding: 5px;">Clear</button>
+    <div id="debug-cart-items" style="max-height: 200px; overflow-y: auto; margin-top: 10px;"></div>
+</div>
+
+<script>
+function debugAddToCart() {
+    console.log('Debug: Adding test item to cart');
+    const testProduct = {
+        id: 'debug-test-' + Date.now(),
+        name: 'Debug Test Product',
+        price: 999,
+        description: 'Debug test item',
+        image: 'https://via.placeholder.com/150'
+    };
+    
+    // Call the main addToCart function
+    if (typeof addToCart === 'function') {
+        addToCart(testProduct);
+    } else {
+        console.error('addToCart function not found!');
+    }
+    
+    debugUpdateDisplay();
+}
+
+function debugShowCart() {
+    const cart = JSON.parse(localStorage.getItem('vrindaCart')) || [];
+    console.log('Current cart from localStorage:', cart);
+    debugUpdateDisplay();
+}
+
+function debugClearCart() {
+    localStorage.removeItem('vrindaCart');
+    if (typeof cart !== 'undefined') {
+        cart.length = 0; // Clear the global cart array
+    }
+    console.log('Cart cleared');
+    debugUpdateDisplay();
+}
+
+function debugUpdateDisplay() {
+    const cart = JSON.parse(localStorage.getItem('vrindaCart')) || [];
+    const countElement = document.getElementById('debug-cart-count');
+    const itemsElement = document.getElementById('debug-cart-items');
+    
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    countElement.textContent = totalItems;
+    
+    if (cart.length === 0) {
+        itemsElement.innerHTML = '<p style="font-size: 12px;">Cart is empty</p>';
+    } else {
+        itemsElement.innerHTML = cart.map(item => 
+            `<div style="font-size: 12px; border-bottom: 1px solid #ccc; padding: 2px;">
+                ${item.name} - ₹${item.price} (${item.quantity})
+            </div>`
+        ).join('');
+    }
+}
+
+// Update display every 2 seconds
+setInterval(debugUpdateDisplay, 2000);
+
+// Initial update
+setTimeout(debugUpdateDisplay, 1000);
+</script>

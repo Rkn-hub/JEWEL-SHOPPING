@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Shopping Cart - The Vrinda Creation</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#E07A5F",
+                        "secondary": "#81B29A",
+                        "accent": "#3D5A80",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .cart-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .cart-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .cart-scroll::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark min-h-screen overflow-hidden text-gray-900 dark:text-gray-100">
+    <div aria-hidden="true" class="fixed inset-0 pointer-events-none select-none opacity-40 blur-[2px]">
+        <header
+            class="flex items-center justify-between px-8 py-4 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-background-dark">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-primary rounded-lg"></div>
+                <div class="flex items-center gap-2"><img src="logo.png" alt="The Vrinda Creation Logo"
+                        class="h-10 w-10 object-contain"><span class="font-bold text-xl dark:text-white">The Vrinda
+                        Creation</span></div>
+            </div>
+            <nav class="flex gap-6 text-sm font-medium text-gray-600 dark:text-gray-300">
+                <span>Collections</span>
+                <span>Necklaces</span>
+                <span>Earrings</span>
+                <span>Bracelets</span>
+            </nav>
+            <div class="flex items-center gap-2">
+                <button onclick="toggleDarkMode()" 
+                    class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-900 dark:text-white transition-colors"
+                    title="Toggle theme">
+                    <span class="material-symbols-outlined !text-[20px] dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined !text-[20px] hidden dark:block">light_mode</span>
+                </button>
+            </div>
+        </header>
+        <main class="p-8 grid grid-cols-4 gap-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg h-64"></div>
+            <div class="bg-white dark:bg-gray-800 rounded-lg h-64"></div>
+            <div class="bg-white dark:bg-gray-800 rounded-lg h-64"></div>
+            <div class="bg-white dark:bg-gray-800 rounded-lg h-64"></div>
+            <div class="bg-white dark:bg-gray-800 rounded-lg h-64"></div>
+            <div class="bg-white dark:bg-gray-800 rounded-lg h-64"></div>
+            <div class="bg-white dark:bg-gray-800 rounded-lg h-64"></div>
+            <div class="bg-white dark:bg-gray-800 rounded-lg h-64"></div>
+        </main>
+    </div>
+    <div class="relative z-50 font-display">
+        <div class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"></div>
+        <div class="fixed inset-y-0 right-0 flex max-w-full pl-10">
+            <div class="w-screen max-w-[480px]">
+                <div
+                    class="flex h-full flex-col bg-white/95 dark:bg-[#101c22]/90 backdrop-blur-xl shadow-2xl border-l border-white/20 dark:border-white/10">
+                    <div
+                        class="flex items-center justify-between px-6 py-5 border-b border-gray-100/50 dark:border-white/10">
+                        <div class="flex items-center gap-3">
+                            <h2 class="text-xl font-bold text-gray-900 dark:text-white">Shopping Cart</h2>
+                            <span
+                                class="cart-count flex h-6 w-6 items-center justify-center rounded-full bg-primary text-xs font-bold text-white shadow-md shadow-primary/30">0</span>
+                        </div>
+                        <button onclick="window.location.href='products.html'"
+                            class="relative -m-2 p-2 text-gray-400 hover:text-gray-500 dark:text-gray-400 dark:hover:text-white transition-colors"
+                            type="button">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                    </div>
+                    <div class="flex-1 overflow-y-auto px-6 py-6 cart-scroll">
+                        <ul class="-my-6 divide-y divide-gray-100/50 dark:divide-white/10" role="list" id="cartItemsList">
+                            <!-- Cart items will be dynamically rendered here -->
+                        </ul>
+                    </div>
+                    <div
+                        class="border-t border-gray-100/50 dark:border-white/10 px-6 py-6 bg-white/50 dark:bg-black/20 backdrop-blur-md">
+                        <div class="flex justify-between text-base font-medium text-gray-900 dark:text-white mb-4">
+                            <p class="text-gray-500 dark:text-gray-400">Subtotal</p>
+                            <p class="font-bold text-2xl tracking-tight" id="cartSubtotal">₹0.00</p>
+                        </div>
+                        <p class="mt-0.5 text-sm text-gray-500 dark:text-gray-400 mb-6">
+                            Shipping and taxes calculated at checkout.
+                        </p>
+                        <div class="flex flex-col gap-3">
+                            <button onclick="window.location.href='checkout.html'"
+                                class="flex w-full items-center justify-center rounded-xl border border-transparent bg-primary px-6 py-4 text-base font-bold text-white shadow-lg shadow-primary/20 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background-dark active:scale-[0.99] transition-all">
+                                Checkout
+                            </button>
+                            <button onclick="window.location.href='products.html'"
+                                class="flex w-full items-center justify-center rounded-xl border border-gray-200 dark:border-white/10 bg-transparent px-6 py-3 text-sm font-medium text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+                                Continue Shopping
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

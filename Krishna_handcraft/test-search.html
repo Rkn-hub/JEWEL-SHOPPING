@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Test Search Functions - The Vrinda Creation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#E07A5F",
+                        "secondary": "#81B29A",
+                        "accent": "#3D5A80",
+                        "background-light": "#f8f9fa",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased min-h-screen flex items-center justify-center">
+    <div class="max-w-md mx-auto p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-lg">
+        <h1 class="text-2xl font-bold mb-6 text-center">Test Search Functions</h1>
+        
+        <div class="space-y-4">
+            <button onclick="showQuickSearchModal()" class="w-full bg-primary text-white py-3 px-6 rounded-lg font-bold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined">search</span>
+                Test Quick Search Modal
+            </button>
+            
+            <button onclick="performQuickSearch('necklace')" class="w-full bg-secondary text-white py-3 px-6 rounded-lg font-bold hover:bg-secondary/90 transition-colors flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined">auto_awesome</span>
+                Search for "Necklace"
+            </button>
+            
+            <a href="search.html?q=bracelet" class="w-full bg-accent text-white py-3 px-6 rounded-lg font-bold hover:bg-accent/90 transition-colors flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined">link</span>
+                Go to Search Page with "Bracelet"
+            </a>
+        </div>
+        
+        <div class="mt-8 text-center">
+            <a href="search.html" class="text-primary hover:underline">
+                Go to Main Search Page
+            </a>
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

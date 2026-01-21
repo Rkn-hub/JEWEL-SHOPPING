@@ -1,0 +1,442 @@
+﻿<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Handcrafted Beaded Jewelry Collections - The Vrinda Creation</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#E07A5F",
+                        "secondary": "#81B29A",
+                        "accent": "#3D5A80",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom styles for hover effects */
+        .product-card .product-info {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .product-card:hover .product-info {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Frosted glass utility */
+        .frosted-glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Dark mode frosted glass override */
+        .dark .frosted-glass {
+            background: rgba(16, 28, 34, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white transition-colors duration-200">
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+        <!-- Floating Navigation -->
+        <div class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 md:px-6">
+            <header
+                class="frosted-glass flex w-full max-w-5xl items-center justify-between rounded-xl px-6 py-3 shadow-sm">
+                <!-- Logo -->
+                <div class="flex items-center gap-4 text-slate-900 dark:text-white">
+                    <img src="logo.png" alt="The Vrinda Creation Logo" class="h-10 w-10 object-contain">
+                    <h2 class="text-lg font-bold tracking-tight">The Vrinda Creation</h2>
+                </div>
+                <!-- Desktop Links -->
+                <nav class="hidden md:flex flex-1 justify-center">
+                    <div class="flex items-center gap-8">
+                        <a class="text-sm font-medium text-primary dark:text-primary transition-colors"
+                            href="products.html">Collections</a>
+                        <a class="text-sm font-medium text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors"
+                            href="product-detail.html">Featured</a>
+                        <a class="text-sm font-medium text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors"
+                            href="about.html">About</a>
+                        <a class="text-sm font-medium text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors"
+                            href="contact.html">Contact</a>
+                    </div>
+                </nav>
+                <!-- Actions -->
+                <div class="flex items-center justify-end gap-3">
+                    <button onclick="toggleDarkMode()"
+                        class="flex size-9 items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors text-slate-900 dark:text-white"
+                        title="Toggle theme">
+                        <span class="material-symbols-outlined text-[20px] dark:hidden">dark_mode</span>
+                        <span class="material-symbols-outlined text-[20px] hidden dark:block">light_mode</span>
+                    </button>
+                    <a href="search.html"
+                        class="flex size-9 items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors text-slate-900 dark:text-white">
+                        <span class="material-symbols-outlined text-[20px]">search</span>
+                    </a>
+                    <a href="cart.html"
+                        class="relative flex size-9 items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors text-slate-900 dark:text-white">
+                        <span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+                        <span
+                            class="cart-count absolute -top-1 -right-1 flex size-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white">0</span>
+                    </a>
+                    <a href="profile.html" class="hidden sm:block ml-2 size-8 rounded-full bg-cover bg-center"
+                        data-alt="User profile avatar"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBWs5cNbGq0AnAtvfqVulNX9av8oyKy5VSm2zicrolFFwXXqjHhZw7HlDgwnYc_eCy6a2oUkaJ-aR3U6heNR4kMXkovv78ybt207Kne0jOEbV38pLanRILAzmK0NOJ55qbx13L2OiG2GULUSWNNK4sEGkA0Khiyhky1Dd14qLQoVPxm1aFov82hD1SSz_qUx6YMbtfpFCU4Ql5dFokFcqnNXLL0la9ljufrbGlG5TYeSdYlkrv_WPrh5deRmfGHMeY-y00E8kHXUhPD");'>
+                    </a>
+                </div>
+            </header>
+        </div>
+        <main class="flex-1 px-4 md:px-6 pt-32 pb-16 flex flex-col items-center">
+            <div class="w-full max-w-5xl">
+                <!-- Page Heading -->
+                <div class="flex flex-col gap-2 mb-6 px-2">
+                    <h1 class="text-4xl md:text-5xl font-light tracking-tight text-slate-900 dark:text-white">Beaded
+                        Jewelry Collections</h1>
+                    <p class="text-slate-500 dark:text-slate-400 text-base font-light">Handcrafted beadwork pieces made
+                        with love and creativity by passionate artisans.</p>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="mb-6 px-2">
+                    <div class="relative max-w-md">
+                        <input type="text" placeholder="Search products..."
+                            class="w-full px-4 py-3 pr-12 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none"
+                            id="productsSearchInput" />
+                        <button onclick="searchInProducts()"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors">
+                            <span class="material-symbols-outlined text-[16px]">search</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filters & Sort -->
+                <div
+                    class="sticky top-24 z-30 mb-8 -mx-2 px-2 py-2 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm md:static md:bg-transparent md:p-0 md:backdrop-filter-none">
+                    <div class="flex flex-wrap items-center justify-between gap-4">
+                        <div class="flex flex-wrap gap-2">
+                            <button
+                                class="group flex h-9 items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 transition-colors hover:border-primary/50 dark:border-slate-800 dark:bg-slate-900">
+                                <span
+                                    class="material-symbols-outlined text-[18px] text-slate-500 group-hover:text-primary dark:text-slate-400">tune</span>
+                                <span class="text-sm font-medium text-slate-700 dark:text-slate-200">Filter</span>
+                            </button>
+                            <div class="h-9 w-px bg-slate-200 dark:bg-slate-800 mx-1"></div>
+                            <button
+                                class="flex h-9 items-center gap-2 rounded-lg bg-slate-100 px-3 transition-colors hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700">
+                                <span class="text-sm font-medium text-slate-700 dark:text-slate-200">Category</span>
+                                <span
+                                    class="material-symbols-outlined text-[18px] text-slate-500 dark:text-slate-400">keyboard_arrow_down</span>
+                            </button>
+                            <button
+                                class="flex h-9 items-center gap-2 rounded-lg bg-slate-100 px-3 transition-colors hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700">
+                                <span class="text-sm font-medium text-slate-700 dark:text-slate-200">Price Range</span>
+                                <span
+                                    class="material-symbols-outlined text-[18px] text-slate-500 dark:text-slate-400">keyboard_arrow_down</span>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm text-slate-500 dark:text-slate-400 hidden sm:block">Sort by:</span>
+                            <button
+                                class="flex items-center gap-1 text-sm font-medium text-slate-900 hover:text-primary dark:text-white dark:hover:text-primary transition-colors">
+                                Newest
+                                <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Grid -->
+                <div id="products-grid"
+                    class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    <!-- Product 1 -->
+                    <div class="product-card group relative flex flex-col cursor-pointer">
+                        <div
+                            class="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                                data-alt="Bohemian beaded necklace with turquoise and wooden beads"
+                                style='background-image: url("https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80");'>
+                            </div>
+                            <!-- Hover overlay shadow -->
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4 product-info">
+                                <button
+                                    class="w-full rounded-lg bg-primary py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
+                                    Quick Add
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex flex-col gap-1 px-1">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-base font-medium text-slate-900 dark:text-white">Bohemian Dreams
+                                    Necklace</h3>
+                                <p class="text-sm font-medium text-slate-500 dark:text-slate-400">₹1,250</p>
+                            </div>
+                            <p class="text-xs text-slate-400 dark:text-slate-500">Turquoise & Wood Beads</p>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="product-card group relative flex flex-col cursor-pointer">
+                        <div
+                            class="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                                data-alt="Wire-wrapped earrings with glass beads"
+                                style='background-image: url("https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80");'>
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4 product-info">
+                                <button
+                                    class="w-full rounded-lg bg-primary py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
+                                    Quick Add
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex flex-col gap-1 px-1">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-base font-medium text-slate-900 dark:text-white">Wire-Wrapped Elegance
+                                </h3>
+                                <p class="text-sm font-medium text-slate-500 dark:text-slate-400">₹850</p>
+                            </div>
+                            <p class="text-xs text-slate-400 dark:text-slate-500">Glass & Silver Wire</p>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="product-card group relative flex flex-col cursor-pointer">
+                        <div
+                            class="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                                data-alt="Macramé bracelet with natural stone beads"
+                                style='background-image: url("https://images.unsplash.com/photo-1611652022419-a9419f74343d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80");'>
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4 product-info">
+                                <button
+                                    class="w-full rounded-lg bg-primary py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
+                                    Quick Add
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex flex-col gap-1 px-1">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-base font-medium text-slate-900 dark:text-white">Macramé Harmony</h3>
+                                <p class="text-sm font-medium text-slate-500 dark:text-slate-400">₹750</p>
+                            </div>
+                            <p class="text-xs text-slate-400 dark:text-slate-500">Stone & Cotton Cord</p>
+                        </div>
+                    </div>
+                    <!-- Product 4 -->
+                    <div class="product-card group relative flex flex-col cursor-pointer">
+                        <div
+                            class="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                                data-alt="Statement beaded jewelry piece with colorful patterns"
+                                style='background-image: url("https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80");'>
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4 product-info">
+                                <button
+                                    class="w-full rounded-lg bg-primary py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
+                                    Quick Add
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex flex-col gap-1 px-1">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-base font-medium text-slate-900 dark:text-white">Festival Statement</h3>
+                                <p class="text-sm font-medium text-slate-500 dark:text-slate-400">₹1,650</p>
+                            </div>
+                            <p class="text-xs text-slate-400 dark:text-slate-500">Multi-Color Beadwork</p>
+                        </div>
+                    </div>
+                    <!-- Product 5 -->
+                    <div class="product-card group relative flex flex-col cursor-pointer">
+                        <div
+                            class="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                                data-alt="Delicate seed bead bracelet with floral pattern"
+                                style='background-image: url("https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80");'>
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4 product-info">
+                                <button
+                                    class="w-full rounded-lg bg-primary py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
+                                    Quick Add
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex flex-col gap-1 px-1">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-base font-medium text-slate-900 dark:text-white">Floral Seed Bead
+                                    Bracelet</h3>
+                                <p class="text-sm font-medium text-slate-500 dark:text-slate-400">₹950</p>
+                            </div>
+                            <p class="text-xs text-slate-400 dark:text-slate-500">Seed Beads & Thread</p>
+                        </div>
+                    </div>
+                    <!-- Product 6 -->
+                    <div class="product-card group relative flex flex-col cursor-pointer">
+                        <div
+                            class="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                                data-alt="Elegant pearl and crystal drop earrings"
+                                style='background-image: url("https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80");'>
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4 product-info">
+                                <button
+                                    class="w-full rounded-lg bg-primary py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
+                                    Quick Add
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex flex-col gap-1 px-1">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-base font-medium text-slate-900 dark:text-white">Pearl Crystal Drops
+                                </h3>
+                                <p class="text-sm font-medium text-slate-500 dark:text-slate-400">₹1,450</p>
+                            </div>
+                            <p class="text-xs text-slate-400 dark:text-slate-500">Pearl & Crystal</p>
+                        </div>
+                    </div>
+                    <!-- Product 7 -->
+                    <div class="product-card group relative flex flex-col cursor-pointer">
+                        <div
+                            class="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                                data-alt="Bohemian multi-strand beaded necklace"
+                                style='background-image: url("https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80");'>
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4 product-info">
+                                <button
+                                    class="w-full rounded-lg bg-primary py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
+                                    Quick Add
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex flex-col gap-1 px-1">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-base font-medium text-slate-900 dark:text-white">Multi-Strand Bohemian
+                                </h3>
+                                <p class="text-sm font-medium text-slate-500 dark:text-slate-400">₹2,150</p>
+                            </div>
+                            <p class="text-xs text-slate-400 dark:text-slate-500">Mixed Beads</p>
+                        </div>
+                    </div>
+                    <!-- Product 8 -->
+                    <div class="product-card group relative flex flex-col cursor-pointer">
+                        <div
+                            class="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                                data-alt="Minimalist geometric beaded anklet"
+                                style='background-image: url("https://images.unsplash.com/photo-1611652022419-a9419f74343d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80");'>
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4 product-info">
+                                <button
+                                    class="w-full rounded-lg bg-primary py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
+                                    Quick Add
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex flex-col gap-1 px-1">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-base font-medium text-slate-900 dark:text-white">Geometric Anklet</h3>
+                                <p class="text-sm font-medium text-slate-500 dark:text-slate-400">₹650</p>
+                            </div>
+                            <p class="text-xs text-slate-400 dark:text-slate-500">Glass Beads</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pagination -->
+                <div class="mt-20 flex justify-center">
+                    <div class="flex items-center gap-2">
+                        <a class="flex size-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 hover:border-slate-300 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400 dark:hover:border-slate-700"
+                            href="index.html">
+                            <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+                        </a>
+                        <a class="flex size-10 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white shadow-sm"
+                            href="index.html">1</a>
+                        <a class="flex size-10 items-center justify-center rounded-lg bg-white text-sm font-medium text-slate-700 hover:bg-slate-50 dark:bg-transparent dark:text-slate-300 dark:hover:bg-slate-800"
+                            href="index.html">2</a>
+                        <a class="flex size-10 items-center justify-center rounded-lg bg-white text-sm font-medium text-slate-700 hover:bg-slate-50 dark:bg-transparent dark:text-slate-300 dark:hover:bg-slate-800"
+                            href="index.html">3</a>
+                        <span class="flex size-10 items-center justify-center text-slate-400">...</span>
+                        <a class="flex size-10 items-center justify-center rounded-lg bg-white text-sm font-medium text-slate-700 hover:bg-slate-50 dark:bg-transparent dark:text-slate-300 dark:hover:bg-slate-800"
+                            href="index.html">8</a>
+                        <a class="flex size-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 hover:border-slate-300 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400 dark:hover:border-slate-700"
+                            href="index.html">
+                            <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer class="border-t border-slate-100 bg-white py-12 dark:border-slate-800 dark:bg-background-dark">
+            <div class="mx-auto flex max-w-5xl flex-col items-center gap-6 px-6 text-center">
+                <div class="flex items-center gap-2 text-slate-900 dark:text-white">
+                    <img src="logo.png" alt="The Vrinda Creation Logo" class="h-8 w-8 object-contain">
+                    <span class="font-bold">The Vrinda Creation</span>
+                </div>
+                <div class="flex flex-wrap justify-center gap-8">
+                    <a class="text-sm text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+                        href="index.html">Returns Policy</a>
+                    <a class="text-sm text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+                        href="index.html">FAQ</a>
+                    <a class="text-sm text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+                        href="index.html">Instagram</a>
+                    <a class="text-sm text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+                        href="index.html">Contact Us</a>
+                </div>
+                <p class="text-xs text-slate-400 dark:text-slate-600">© 2024 The Vrinda Creation. All rights reserved.
+                </p>
+            </div>
+        </footer>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

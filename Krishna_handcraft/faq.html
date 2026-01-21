@@ -1,0 +1,337 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>FAQ - The Vrinda Creation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#E07A5F",
+                        "secondary": "#81B29A",
+                        "accent": "#3D5A80",
+                        "background-light": "#f8f9fa",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+    <!-- Floating Navigation Bar -->
+    <div
+        class="fixed top-0 left-0 w-full z-50 flex justify-center px-4 pt-6 transition-all duration-300 pointer-events-none">
+        <header
+            class="pointer-events-auto flex items-center justify-between gap-8 px-6 py-3 w-full max-w-[1024px] rounded-full bg-white/70 dark:bg-black/60 backdrop-blur-md border border-white/40 dark:border-white/10 shadow-sm hover:shadow-md transition-all duration-300">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <a class="flex items-center gap-2 text-slate-900 dark:text-white group" href="index.html">
+                    <img src="logo.png" alt="The Vrinda Creation Logo" class="h-10 w-10 object-contain">
+                    <span class="text-lg font-bold tracking-tight group-hover:text-primary transition-colors">The Vrinda
+                        Creation</span>
+                </a>
+            </div>
+            <!-- Nav Links (Desktop) -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="products.html">Collections</a>
+                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="product-detail.html">Featured</a>
+                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="about.html">About</a>
+                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="contact.html">Contact</a>
+            </nav>
+            <!-- Icons -->
+            <div class="flex items-center gap-2">
+                <button onclick="toggleDarkMode()" 
+                    class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-900 dark:text-white transition-colors"
+                    title="Toggle theme">
+                    <span class="material-symbols-outlined !text-[20px] dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined !text-[20px] hidden dark:block">light_mode</span>
+                </button>
+                <button
+                    class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-900 dark:text-white transition-colors">
+                    <span class="material-symbols-outlined !text-[20px]">search</span>
+                </button>
+                <a href="cart.html"
+                    class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-900 dark:text-white transition-colors relative">
+                    <span class="material-symbols-outlined !text-[20px]">shopping_bag</span>
+                    <span class="absolute top-2 right-2 size-2 bg-primary rounded-full"></span>
+                </a>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-16 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="text-primary text-sm font-bold uppercase tracking-widest mb-3 block">Help Center</span>
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">Frequently Asked Questions</h1>
+            <p class="text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
+                Find answers to common questions about our handcrafted jewelry
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-4xl mx-auto px-6 pb-20">
+        <!-- Orders & Shipping -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary">local_shipping</span>
+                </span>
+                Orders & Shipping
+            </h2>
+            <div class="space-y-4">
+                <details class="group bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">
+                    <summary class="flex items-center justify-between cursor-pointer font-medium text-lg list-none">
+                        <span>How long does shipping take?</span>
+                        <span
+                            class="material-symbols-outlined transition-transform group-open:rotate-180 text-slate-400">expand_more</span>
+                    </summary>
+                    <div class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                        <p>We ship within 2-3 business days of receiving your order. Delivery typically takes:</p>
+                        <ul class="list-disc pl-6 mt-2 space-y-1">
+                            <li>Domestic (India): 5-7 business days</li>
+                            <li>Metro cities: 3-5 business days</li>
+                            <li>International: 10-15 business days</li>
+                        </ul>
+                        <p class="mt-2">You'll receive a tracking number once your order ships!</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">
+                    <summary class="flex items-center justify-between cursor-pointer font-medium text-lg list-none">
+                        <span>Do you offer free shipping?</span>
+                        <span
+                            class="material-symbols-outlined transition-transform group-open:rotate-180 text-slate-400">expand_more</span>
+                    </summary>
+                    <div class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Yes! We offer free shipping on all orders above ₹2,000 within India. For international orders,
+                        free shipping is available on orders above $100.
+                    </div>
+                </details>
+
+                <details class="group bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">
+                    <summary class="flex items-center justify-between cursor-pointer font-medium text-lg list-none">
+                        <span>Can I track my order?</span>
+                        <span
+                            class="material-symbols-outlined transition-transform group-open:rotate-180 text-slate-400">expand_more</span>
+                    </summary>
+                    <div class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Absolutely! Once your order ships, you'll receive an email with a tracking number and link to
+                        track your package in real-time.
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <!-- Products & Materials -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-secondary">inventory_2</span>
+                </span>
+                Products & Materials
+            </h2>
+            <div class="space-y-4">
+                <details class="group bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">
+                    <summary class="flex items-center justify-between cursor-pointer font-medium text-lg list-none">
+                        <span>What materials do you use?</span>
+                        <span
+                            class="material-symbols-outlined transition-transform group-open:rotate-180 text-slate-400">expand_more</span>
+                    </summary>
+                    <div class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                        <p>We use high-quality, sustainable materials including:</p>
+                        <ul class="list-disc pl-6 mt-2 space-y-1">
+                            <li>Natural stone beads (turquoise, jade, agate)</li>
+                            <li>Glass beads in various colors and finishes</li>
+                            <li>Wooden beads from sustainable sources</li>
+                            <li>Silver-plated and copper wire</li>
+                            <li>Organic cotton cord for macramé</li>
+                            <li>Hypoallergenic findings and clasps</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="group bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">
+                    <summary class="flex items-center justify-between cursor-pointer font-medium text-lg list-none">
+                        <span>Are your products handmade?</span>
+                        <span
+                            class="material-symbols-outlined transition-transform group-open:rotate-180 text-slate-400">expand_more</span>
+                    </summary>
+                    <div class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Yes! Every piece is lovingly handcrafted by our founder Rashika. Each item is unique and made
+                        with care, attention to detail, and traditional artisan techniques.
+                    </div>
+                </details>
+
+                <details class="group bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">
+                    <summary class="flex items-center justify-between cursor-pointer font-medium text-lg list-none">
+                        <span>Can I request custom jewelry?</span>
+                        <span
+                            class="material-symbols-outlined transition-transform group-open:rotate-180 text-slate-400">expand_more</span>
+                    </summary>
+                    <div class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Absolutely! We love creating custom pieces. You can choose bead colors, materials, lengths, and
+                        designs. Contact us at thevrindacreation@gmail.com with your ideas, and we'll work with you to
+                        create your perfect piece!
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <!-- Care & Maintenance -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-accent">favorite</span>
+                </span>
+                Care & Maintenance
+            </h2>
+            <div class="space-y-4">
+                <details class="group bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">
+                    <summary class="flex items-center justify-between cursor-pointer font-medium text-lg list-none">
+                        <span>How do I care for my beaded jewelry?</span>
+                        <span
+                            class="material-symbols-outlined transition-transform group-open:rotate-180 text-slate-400">expand_more</span>
+                    </summary>
+                    <div class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                        <p>To keep your jewelry beautiful:</p>
+                        <ul class="list-disc pl-6 mt-2 space-y-1">
+                            <li>Store flat in a dry place to prevent tangling</li>
+                            <li>Clean gently with a soft, dry cloth</li>
+                            <li>Avoid water exposure, especially for wooden beads</li>
+                            <li>Keep away from perfumes and lotions</li>
+                            <li>Remove before swimming or bathing</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="group bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">
+                    <summary class="flex items-center justify-between cursor-pointer font-medium text-lg list-none">
+                        <span>What if my jewelry breaks?</span>
+                        <span
+                            class="material-symbols-outlined transition-transform group-open:rotate-180 text-slate-400">expand_more</span>
+                    </summary>
+                    <div class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                        We offer free repairs for the first year on all our jewelry! Just contact us and we'll arrange
+                        for repair or replacement. After the first year, we offer repair services at a minimal cost.
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <!-- Returns & Exchanges -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary">sync</span>
+                </span>
+                Returns & Exchanges
+            </h2>
+            <div class="space-y-4">
+                <details class="group bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">
+                    <summary class="flex items-center justify-between cursor-pointer font-medium text-lg list-none">
+                        <span>What is your return policy?</span>
+                        <span
+                            class="material-symbols-outlined transition-transform group-open:rotate-180 text-slate-400">expand_more</span>
+                    </summary>
+                    <div class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                        We offer a 15-day return policy for unused items in original packaging. Custom pieces are final
+                        sale. To initiate a return, contact us at thevrindacreation@gmail.com with your order number.
+                    </div>
+                </details>
+
+                <details class="group bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">
+                    <summary class="flex items-center justify-between cursor-pointer font-medium text-lg list-none">
+                        <span>Can I exchange my jewelry?</span>
+                        <span
+                            class="material-symbols-outlined transition-transform group-open:rotate-180 text-slate-400">expand_more</span>
+                    </summary>
+                    <div class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Yes! We're happy to exchange items within 15 days of purchase. Exchanges are subject to
+                        availability. Contact us to arrange an exchange.
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <!-- Still Have Questions? -->
+        <div class="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-8 text-center">
+            <h3 class="text-2xl font-bold mb-3">Still Have Questions?</h3>
+            <p class="text-slate-600 dark:text-slate-300 mb-6">We're here to help! Reach out to us and we'll get back to
+                you as soon as possible.</p>
+            <a class="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-lg transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20"
+                href="contact.html">
+                <span>Contact Us</span>
+                <span class="material-symbols-outlined !text-[20px]">arrow_forward</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-background-dark border-t border-slate-100 dark:border-slate-800">
+        <div class="max-w-[1440px] mx-auto px-6 md:px-20 py-16">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-10">
+                <!-- Brand -->
+                <div class="flex flex-col items-center md:items-start gap-4">
+                    <div class="flex items-center gap-2 text-slate-900 dark:text-white">
+                        <img src="logo.png" alt="The Vrinda Creation Logo" class="h-10 w-10 object-contain">
+                        <span class="text-lg font-bold tracking-tight">The Vrinda Creation</span>
+                    </div>
+                    <p class="text-slate-500 text-sm max-w-xs text-center md:text-left">
+                        Creating beautiful handcrafted beaded jewelry with love, creativity, and sustainable practices.
+                    </p>
+                </div>
+                <!-- Footer Links -->
+                <div
+                    class="flex flex-wrap items-center justify-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-400">
+                    <a class="hover:text-primary transition-colors" href="products.html">Shop</a>
+                    <a class="hover:text-primary transition-colors" href="about.html">About</a>
+                    <a class="hover:text-primary transition-colors" href="contact.html">Contact</a>
+                    <a class="hover:text-primary transition-colors" href="faq.html">FAQ</a>
+                    <a class="hover:text-primary transition-colors" href="order-confirmation.html">Track Order</a>
+                </div>
+                <!-- Socials -->
+                <div class="flex gap-4">
+                    <a class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 dark:bg-white/5 text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-white/10 transition-all"
+                        href="#">
+                        <span class="material-symbols-outlined !text-[20px]">thumb_up</span>
+                    </a>
+                    <a class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 dark:bg-white/5 text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-white/10 transition-all"
+                        href="#">
+                        <span class="material-symbols-outlined !text-[20px]">photo_camera</span>
+                    </a>
+                    <a class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 dark:bg-white/5 text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-white/10 transition-all"
+                        href="#">
+                        <span class="material-symbols-outlined !text-[20px]">alternate_email</span>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 text-center">
+                <p class="text-slate-400 text-xs font-normal">© 2024 The Vrinda Creation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+
+</html>

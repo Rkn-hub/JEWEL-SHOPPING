@@ -1,0 +1,10 @@
+name = "shopping-worker"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+# Account ID from your previous input
+account_id = "c6842d7d3541f805f38de53202ff48a0"
+
+# Bind the R2 Bucket
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "product"

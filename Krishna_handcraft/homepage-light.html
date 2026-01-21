@@ -1,0 +1,318 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>The Vrinda Creation | Handcrafted Beaded Jewelry</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#E07A5F",
+                        "secondary": "#81B29A",
+                        "accent": "#3D5A80",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background-light font-display text-slate-900 antialiased">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <img src="logo.png" alt="The Vrinda Creation Logo" class="h-10 w-10 object-contain">
+                <h1 class="text-xl font-bold tracking-tight">The Vrinda Creation</h1>
+            </div>
+            <nav class="hidden md:flex items-center gap-8">
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="products.html">Collections</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="products.html">Beaded Jewelry</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="products.html">Wire Art</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="about.html">About Artisans</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button
+                    class="flex items-center justify-center rounded-full size-10 bg-slate-100 hover:bg-slate-200 transition-colors">
+                    <span class="material-symbols-outlined text-[20px]">search</span>
+                </button>
+                <button
+                    class="relative flex items-center justify-center rounded-full size-10 bg-slate-100 hover:bg-slate-200 transition-colors">
+                    <span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+                    <span
+                        class="absolute -top-1 -right-1 flex size-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white">2</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="space-y-4">
+                        <h2 class="text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+                            Handcrafted
+                            <span class="text-primary">Beaded</span>
+                            Jewelry
+                        </h2>
+                        <p class="text-xl text-slate-600 leading-relaxed">
+                            Discover unique, artisan-made jewelry featuring intricate beadwork, wire art, and macramé
+                            techniques. Each piece tells a story of craftsmanship and creativity.
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button
+                            class="bg-primary hover:bg-primary/90 text-white font-semibold py-4 px-8 rounded-lg transition-colors">
+                            Shop Collection
+                        </button>
+                        <button
+                            class="border border-slate-300 hover:bg-slate-50 font-semibold py-4 px-8 rounded-lg transition-colors">
+                            Meet the Artisan
+                        </button>
+                    </div>
+                    <div class="flex items-center gap-8 text-sm text-slate-600">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-secondary">handyman</span>
+                            <span>Handcrafted</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-secondary">eco</span>
+                            <span>Sustainable</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-secondary">favorite</span>
+                            <span>Made with Love</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="aspect-square rounded-2xl overflow-hidden bg-slate-100">
+                        <img class="w-full h-full object-cover"
+                            data-alt="Beautiful handcrafted beaded jewelry collection"
+                            src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" />
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-white rounded-xl p-4 shadow-lg border border-slate-200">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-primary">person</span>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-sm">Rashika</p>
+                                <p class="text-xs text-slate-600">Founder & Artisan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Collections -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl font-bold mb-4">Featured Collections</h3>
+                <p class="text-lg text-slate-600">Explore our most popular handcrafted jewelry pieces</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="group cursor-pointer">
+                    <div class="aspect-[4/5] rounded-xl overflow-hidden bg-slate-100 mb-4">
+                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            data-alt="Beaded necklaces collection"
+                            src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" />
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">Beaded Necklaces
+                    </h4>
+                    <p class="text-slate-600 mb-4">Intricate designs with natural stones and glass beads</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-slate-500">From ₹850</span>
+                        <span
+                            class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </div>
+                </div>
+
+                <div class="group cursor-pointer">
+                    <div class="aspect-[4/5] rounded-xl overflow-hidden bg-slate-100 mb-4">
+                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            data-alt="Wire art earrings collection"
+                            src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" />
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">Wire Art Earrings
+                    </h4>
+                    <p class="text-slate-600 mb-4">Delicate wire-wrapped designs with colorful beads</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-slate-500">From ₹650</span>
+                        <span
+                            class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </div>
+                </div>
+
+                <div class="group cursor-pointer">
+                    <div class="aspect-[4/5] rounded-xl overflow-hidden bg-slate-100 mb-4">
+                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            data-alt="Macramé bracelets collection"
+                            src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" />
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">Macramé Bracelets
+                    </h4>
+                    <p class="text-slate-600 mb-4">Bohemian-style bracelets with natural stone accents</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-slate-500">From ₹450</span>
+                        <span
+                            class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h3 class="text-3xl font-bold">Crafted with Passion</h3>
+                    <p class="text-lg text-slate-600 leading-relaxed">
+                        Every piece of jewelry at The Vrinda Creation is handcrafted by Rashika, a passionate artisan
+                        who believes in the beauty of traditional techniques combined with contemporary designs.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="material-symbols-outlined text-primary text-sm">check</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Unique Designs</h4>
+                                <p class="text-slate-600">Each piece is one-of-a-kind, reflecting individual artistry
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="material-symbols-outlined text-primary text-sm">check</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Quality Materials</h4>
+                                <p class="text-slate-600">Premium beads, wires, and natural stones sourced responsibly
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="material-symbols-outlined text-primary text-sm">check</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Personal Touch</h4>
+                                <p class="text-slate-600">Made with love and attention to every detail</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4">
+                        <button
+                            class="bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+                            Learn More
+                        </button>
+                        <div class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="material-symbols-outlined">email</span>
+                            <span>thevrindacreation@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="aspect-square rounded-xl overflow-hidden bg-slate-100">
+                        <img class="w-full h-full object-cover" data-alt="Artisan at work"
+                            src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" />
+                    </div>
+                    <div class="aspect-square rounded-xl overflow-hidden bg-slate-100">
+                        <img class="w-full h-full object-cover" data-alt="Jewelry making process"
+                            src="https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2">
+                        <img src="logo.png" alt="The Vrinda Creation Logo" class="h-10 w-10 object-contain">
+                        <span class="text-lg font-bold">The Vrinda Creation</span>
+                    </div>
+                    <p class="text-slate-600">Handcrafted beaded jewelry made with love and traditional techniques.</p>
+                    <div class="flex items-center gap-4">
+                        <a class="text-slate-400 hover:text-primary transition-colors" href="#">
+                            <span class="material-symbols-outlined">mail</span>
+                        </a>
+                        <a class="text-slate-400 hover:text-primary transition-colors" href="#">
+                            <span class="material-symbols-outlined">call</span>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Collections</h4>
+                    <div class="space-y-2">
+                        <a class="block text-slate-600 hover:text-primary transition-colors" href="#">Beaded
+                            Necklaces</a>
+                        <a class="block text-slate-600 hover:text-primary transition-colors" href="products.html">Wire Earrings</a>
+                        <a class="block text-slate-600 hover:text-primary transition-colors" href="#">Macramé
+                            Bracelets</a>
+                        <a class="block text-slate-600 hover:text-primary transition-colors" href="contact.html">Custom Orders</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Support</h4>
+                    <div class="space-y-2">
+                        <a class="block text-slate-600 hover:text-primary transition-colors" href="faq.html">Care
+                            Instructions</a>
+                        <a class="block text-slate-600 hover:text-primary transition-colors" href="faq.html">Shipping Info</a>
+                        <a class="block text-slate-600 hover:text-primary transition-colors" href="faq.html">Returns</a>
+                        <a class="block text-slate-600 hover:text-primary transition-colors" href="contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <div class="space-y-2 text-slate-600">
+                        <p>thevrindacreation@gmail.com</p>
+                        <p>+91 8384074307</p>
+                        <p>Handcrafted with ❤️ in India</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-200 mt-8 pt-8 text-center text-slate-500">
+                <p>© 2023 The Vrinda Creation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+
+</html>

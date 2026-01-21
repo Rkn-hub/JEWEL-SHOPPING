@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Admin Login | The Vrinda Creation</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#E07A5F",
+                        "secondary": "#81B29A",
+                        "accent": "#3D5A80",
+                        "background-light": "#f8f9fa",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Smooth theme transitions */
+        * {
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Background pattern */
+        .bg-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(224, 122, 95, 0.1) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+
+        /* Floating animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased min-h-screen bg-pattern">
+    
+    <!-- Theme Toggle -->
+    <div class="fixed top-6 right-6 z-50">
+        <button onclick="toggleDarkMode()" 
+            class="flex items-center justify-center size-12 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 text-slate-900 dark:text-white transition-all shadow-lg"
+            title="Toggle theme">
+            <span class="material-symbols-outlined !text-[20px] dark:hidden">dark_mode</span>
+            <span class="material-symbols-outlined !text-[20px] hidden dark:block">light_mode</span>
+        </button>
+    </div>
+
+    <!-- Main Container -->
+    <div class="min-h-screen flex items-center justify-center p-6">
+        <div class="max-w-md w-full">
+            <!-- Logo and Header -->
+            <div class="text-center mb-8">
+                <div class="flex justify-center mb-6">
+                    <div class="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center shadow-lg float-animation">
+                        <img src="logo.png" alt="The Vrinda Creation Logo" class="h-12 w-12 object-contain">
+                    </div>
+                </div>
+                <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Admin Portal</h1>
+                <p class="text-slate-600 dark:text-slate-400">Sign in to access the dashboard</p>
+            </div>
+
+            <!-- Login Form -->
+            <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-slate-200 dark:border-slate-700">
+                <form onsubmit="handleLogin(event)" class="space-y-6">
+                    <!-- Email Field -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                            Email Address
+                        </label>
+                        <div class="relative">
+                            <input type="email" id="email" name="email" required
+                                class="w-full pl-12 pr-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors"
+                                placeholder="admin@vrindacreation.com">
+                            <span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-[20px]">email</span>
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                            Password
+                        </label>
+                        <div class="relative">
+                            <input type="password" id="password" name="password" required
+                                class="w-full pl-12 pr-12 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors"
+                                placeholder="Enter your password">
+                            <span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-[20px]">lock</span>
+                            <button type="button" onclick="togglePassword()" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+                                <span id="passwordToggleIcon" class="material-symbols-outlined text-[20px]">visibility</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me -->
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="rounded border-slate-300 dark:border-slate-600 text-primary focus:ring-primary focus:ring-offset-0">
+                            <span class="ml-2 text-sm text-slate-600 dark:text-slate-400">Remember me</span>
+                        </label>
+                        <a href="#" class="text-sm text-primary hover:text-primary/80 transition-colors">
+                            Forgot password?
+                        </a>
+                    </div>
+
+                    <!-- Login Button -->
+                    <button type="submit" 
+                        class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-[20px]">login</span>
+                        <span>Sign In</span>
+                    </button>
+                </form>
+
+                <!-- Demo Credentials -->
+                <div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                    <div class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-blue-600 text-[20px] mt-0.5">info</span>
+                        <div>
+                            <h4 class="text-sm font-medium text-blue-800 dark:text-blue-400 mb-1">Demo Credentials</h4>
+                            <p class="text-xs text-blue-700 dark:text-blue-300 mb-2">Use these credentials to access the admin dashboard:</p>
+                            <div class="text-xs text-blue-700 dark:text-blue-300 space-y-1">
+                                <div><strong>Email:</strong> admin@vrindacreation.com</div>
+                                <div><strong>Password:</strong> admin123</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="text-center mt-8">
+                <p class="text-sm text-slate-500 dark:text-slate-400">
+                    © 2024 The Vrinda Creation. All rights reserved.
+                </p>
+                <a href="index.html" class="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors mt-2">
+                    <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+                    Back to Website
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle password visibility
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('passwordToggleIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.textContent = 'visibility_off';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.textContent = 'visibility';
+            }
+        }
+
+        // Handle login form submission
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Demo credentials check
+            if (email === 'admin@vrindacreation.com' && password === 'admin123') {
+                // Show success message
+                showNotification('Login successful! Redirecting to dashboard...', 2000);
+                
+                // Redirect to admin dashboard after a short delay
+                setTimeout(() => {
+                    window.location.href = 'admin-dashboard.html';
+                }, 2000);
+            } else {
+                // Show error message
+                showNotification('Invalid credentials. Please use the demo credentials provided.', 4000);
+                
+                // Shake the form
+                const form = event.target;
+                form.classList.add('animate-pulse');
+                setTimeout(() => {
+                    form.classList.remove('animate-pulse');
+                }, 500);
+            }
+        }
+
+        // Theme toggle functionality
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const isDark = html.classList.contains('dark');
+            
+            if (isDark) {
+                html.classList.remove('dark');
+                html.classList.add('light');
+                localStorage.setItem('vrindaTheme', 'light');
+            } else {
+                html.classList.remove('light');
+                html.classList.add('dark');
+                localStorage.setItem('vrindaTheme', 'dark');
+            }
+        }
+
+        // Initialize theme
+        function initTheme() {
+            const savedTheme = localStorage.getItem('vrindaTheme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.documentElement.classList.add('dark');
+                document.documentElement.classList.remove('light');
+            } else {
+                document.documentElement.classList.add('light');
+                document.documentElement.classList.remove('dark');
+            }
+        }
+
+        // Notification function
+        function showNotification(message, duration = 3000) {
+            // Remove existing notification
+            const existing = document.querySelector('.vrinda-notification');
+            if (existing) existing.remove();
+            
+            const notification = document.createElement('div');
+            notification.className = 'vrinda-notification fixed top-6 left-1/2 -translate-x-1/2 bg-primary text-white px-6 py-3 rounded-lg shadow-lg z-50 transition-all duration-300';
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translate(-50%, -20px)';
+                setTimeout(() => notification.remove(), 300);
+            }, duration);
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            
+            // Auto-fill demo credentials for convenience
+            document.getElementById('email').value = 'admin@vrindacreation.com';
+            document.getElementById('password').value = 'admin123';
+        });
+    </script>
+</body>
+
+</html>

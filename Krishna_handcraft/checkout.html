@@ -1,0 +1,364 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Checkout | The Vrinda Creation</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#E07A5F",
+                        "secondary": "#81B29A",
+                        "accent": "#3D5A80",
+                        "background-light": "#f8f9fa",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            background: #475569;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+
+        /* Smooth theme transitions */
+        * {
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Autofill styles for both themes */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px white inset !important;
+            -webkit-text-fill-color: #0f172a !important;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+
+        .dark input:-webkit-autofill,
+        .dark input:-webkit-autofill:hover,
+        .dark input:-webkit-autofill:focus,
+        .dark input:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px #1e293b inset !important;
+            -webkit-text-fill-color: white !important;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased min-h-screen flex flex-col selection:bg-primary selection:text-white">
+
+    <!-- Header -->
+    <header
+        class="sticky top-0 z-50 bg-white/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <img src="logo.png" alt="The Vrinda Creation Logo" class="h-10 w-10 object-contain">
+                <h1 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">The Vrinda Creation</h1>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                    <span>Secure Checkout</span>
+                    <span class="material-symbols-outlined text-primary">lock</span>
+                </div>
+                <button onclick="toggleDarkMode()"
+                    class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-900 dark:text-white transition-colors"
+                    title="Toggle theme">
+                    <span class="material-symbols-outlined !text-[20px] dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined !text-[20px] hidden dark:block">light_mode</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 py-8">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Checkout Form -->
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-2 text-slate-900 dark:text-white">Complete Your Order</h2>
+                        <p class="text-slate-600 dark:text-slate-400">Secure checkout for your handcrafted jewelry</p>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Contact Information</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2 text-slate-700 dark:text-slate-300">First
+                                    Name</label>
+                                <input
+                                    class="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-slate-900 dark:text-white"
+                                    placeholder="Enter first name" type="text" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2 text-slate-700 dark:text-slate-300">Last
+                                    Name</label>
+                                <input
+                                    class="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-slate-900 dark:text-white"
+                                    placeholder="Enter last name" type="text" />
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-slate-700 dark:text-slate-300">Email
+                                Address</label>
+                            <input
+                                class="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-slate-900 dark:text-white"
+                                placeholder="your@email.com" type="email" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-slate-700 dark:text-slate-300">Phone
+                                Number</label>
+                            <input
+                                class="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-slate-900 dark:text-white"
+                                placeholder="+91 XXXXX XXXXX" type="tel" />
+                        </div>
+                    </div>
+
+                    <!-- Shipping Address -->
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Shipping Address</h3>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-slate-700 dark:text-slate-300">Street
+                                Address</label>
+                            <input
+                                class="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-slate-900 dark:text-white"
+                                placeholder="Enter your address" type="text" />
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label
+                                    class="block text-sm font-medium mb-2 text-slate-700 dark:text-slate-300">City</label>
+                                <input
+                                    class="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-slate-900 dark:text-white"
+                                    placeholder="City" type="text" />
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-sm font-medium mb-2 text-slate-700 dark:text-slate-300">State</label>
+                                <select
+                                    class="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-slate-900 dark:text-white">
+                                    <option>Select State</option>
+                                    <option>Maharashtra</option>
+                                    <option>Delhi</option>
+                                    <option>Karnataka</option>
+                                    <option>Tamil Nadu</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2 text-slate-700 dark:text-slate-300">PIN
+                                    Code</label>
+                                <input
+                                    class="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-slate-900 dark:text-white"
+                                    placeholder="000000" type="text" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Payment Method</h3>
+                        <div class="space-y-3">
+                            <label
+                                class="flex items-center gap-3 p-4 rounded-lg border border-slate-300 dark:border-slate-700 hover:border-primary/50 cursor-pointer transition-colors bg-white dark:bg-slate-800">
+                                <input class="text-primary focus:ring-primary" name="payment" type="radio"
+                                    value="card" />
+                                <div class="flex-1">
+                                    <div class="font-medium text-slate-900 dark:text-white">Credit/Debit Card</div>
+                                    <div class="text-sm text-slate-600 dark:text-slate-400">Visa, Mastercard, RuPay
+                                    </div>
+                                </div>
+                                <div class="flex gap-2">
+                                    <span
+                                        class="material-symbols-outlined text-slate-600 dark:text-slate-400">credit_card</span>
+                                </div>
+                            </label>
+                            <label
+                                class="flex items-center gap-3 p-4 rounded-lg border border-slate-300 dark:border-slate-700 hover:border-primary/50 cursor-pointer transition-colors bg-white dark:bg-slate-800">
+                                <input class="text-primary focus:ring-primary" name="payment" type="radio"
+                                    value="upi" />
+                                <div class="flex-1">
+                                    <div class="font-medium text-slate-900 dark:text-white">UPI Payment</div>
+                                    <div class="text-sm text-slate-600 dark:text-slate-400">PhonePe, Google Pay, Paytm
+                                    </div>
+                                </div>
+                                <div class="flex gap-2">
+                                    <span
+                                        class="material-symbols-outlined text-slate-600 dark:text-slate-400">qr_code</span>
+                                </div>
+                            </label>
+                            <label
+                                class="flex items-center gap-3 p-4 rounded-lg border border-slate-300 dark:border-slate-700 hover:border-primary/50 cursor-pointer transition-colors bg-white dark:bg-slate-800">
+                                <input class="text-primary focus:ring-primary" name="payment" type="radio"
+                                    value="cod" />
+                                <div class="flex-1">
+                                    <div class="font-medium text-slate-900 dark:text-white">Cash on Delivery</div>
+                                    <div class="text-sm text-slate-600 dark:text-slate-400">Pay when you receive</div>
+                                </div>
+                                <div class="flex gap-2">
+                                    <span
+                                        class="material-symbols-outlined text-slate-600 dark:text-slate-400">local_shipping</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="lg:sticky lg:top-24">
+                    <div
+                        class="bg-white dark:bg-slate-800 rounded-xl p-6 space-y-6 border border-slate-200 dark:border-slate-700 shadow-sm">
+                        <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Order Summary</h3>
+
+                        <!-- Order Items -->
+                        <div class="space-y-4">
+                            <div class="flex gap-4">
+                                <div class="w-16 h-16 rounded-lg overflow-hidden bg-slate-100 dark:bg-slate-700">
+                                    <img class="w-full h-full object-cover" data-alt="Bohemian Dreams Necklace"
+                                        src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" />
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="font-medium text-slate-900 dark:text-white">Bohemian Dreams Necklace</h4>
+                                    <p class="text-sm text-slate-600 dark:text-slate-400">Turquoise & wooden beads</p>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <span class="text-sm text-slate-600 dark:text-slate-400">Qty: 1</span>
+                                        <span class="font-semibold text-primary">₹1,250</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="w-16 h-16 rounded-lg overflow-hidden bg-slate-100 dark:bg-slate-700">
+                                    <img class="w-full h-full object-cover" data-alt="Wire Elegance Earrings"
+                                        src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" />
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="font-medium text-slate-900 dark:text-white">Wire Elegance Earrings</h4>
+                                    <p class="text-sm text-slate-600 dark:text-slate-400">Hand wire-wrapped</p>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <span class="text-sm text-slate-600 dark:text-slate-400">Qty: 2</span>
+                                        <span class="font-semibold text-primary">₹1,700</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="w-16 h-16 rounded-lg overflow-hidden bg-slate-100 dark:bg-slate-700">
+                                    <img class="w-full h-full object-cover" data-alt="Macramé Harmony Bracelet"
+                                        src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" />
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="font-medium text-slate-900 dark:text-white">Macramé Harmony Bracelet</h4>
+                                    <p class="text-sm text-slate-600 dark:text-slate-400">Natural stone beads</p>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <span class="text-sm text-slate-600 dark:text-slate-400">Qty: 1</span>
+                                        <span class="font-semibold text-primary">₹650</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Promo Code -->
+                        <div class="space-y-3">
+                            <div class="flex gap-2">
+                                <input
+                                    class="flex-1 px-3 py-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm text-slate-900 dark:text-white"
+                                    placeholder="Promo code" type="text" />
+                                <button
+                                    class="px-4 py-2 rounded-lg bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-sm font-medium transition-colors text-slate-900 dark:text-white">Apply</button>
+                            </div>
+                        </div>
+
+                        <!-- Order Total -->
+                        <div class="space-y-3 pt-4 border-t border-slate-200 dark:border-slate-700">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-600 dark:text-slate-400">Subtotal (4 items)</span>
+                                <span class="text-slate-900 dark:text-white">₹3,600</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-600 dark:text-slate-400">Shipping</span>
+                                <span class="text-slate-900 dark:text-white">₹150</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-600 dark:text-slate-400">Tax (GST)</span>
+                                <span class="text-slate-900 dark:text-white">₹180</span>
+                            </div>
+                            <div
+                                class="flex justify-between text-lg font-semibold pt-2 border-t border-slate-200 dark:border-slate-700">
+                                <span class="text-slate-900 dark:text-white">Total</span>
+                                <span class="text-primary">₹3,930</span>
+                            </div>
+                        </div>
+
+                        <!-- Place Order Button -->
+                        <button onclick="placeOrder()"
+                            class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-4 rounded-lg transition-colors">
+                            Complete Order
+                        </button>
+
+                        <!-- Security Info -->
+                        <div class="flex items-center justify-center gap-2 text-xs text-slate-600 dark:text-slate-400">
+                            <span class="material-symbols-outlined text-sm">lock</span>
+                            <span>Your payment information is secure and encrypted</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 py-8 bg-white dark:bg-background-dark">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <img src="logo.png" alt="The Vrinda Creation Logo" class="h-8 w-8 object-contain">
+                <span class="font-bold text-slate-900 dark:text-white">The Vrinda Creation</span>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-400">© 2024 The Vrinda Creation. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-client.js"></script>
+    <script src="main.js"></script>
+    <script src="auth.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Debug Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+</head>
+<body class="p-8">
+    <h1 class="text-2xl font-bold mb-4">Cart Debug Test</h1>
+    
+    <!-- Cart Count Display -->
+    <div class="mb-4">
+        <span>Cart Count: </span>
+        <span class="cart-count bg-red-500 text-white px-2 py-1 rounded">0</span>
+    </div>
+    
+    <!-- Test Product Card -->
+    <div class="product-card border p-4 rounded-lg max-w-sm">
+        <div class="relative">
+            <div data-alt="Test product" style="background-image: url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f');" class="w-full h-48 bg-cover bg-center rounded"></div>
+        </div>
+        <div class="mt-4">
+            <h3 class="text-lg font-medium">Test Product</h3>
+            <p class="text-sm font-medium text-gray-500">₹1,250</p>
+            <p class="text-xs text-gray-400">Test description</p>
+        </div>
+        <button class="w-full bg-blue-500 text-white py-2 px-4 rounded mt-4 hover:bg-blue-600">
+            Quick Add
+        </button>
+    </div>
+    
+    <!-- Manual Test Button -->
+    <button onclick="testAddToCart()" class="mt-4 bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600">
+        Manual Test Add to Cart
+    </button>
+    
+    <!-- Cart Display -->
+    <div class="mt-8">
+        <h2 class="text-xl font-bold mb-4">Current Cart:</h2>
+        <div id="cartDisplay" class="border p-4 rounded bg-gray-50">
+            <p>Cart is empty</p>
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+    <script>
+        // Manual test function
+        function testAddToCart() {
+            console.log('Manual test button clicked');
+            const testProduct = {
+                id: 'test-product-1',
+                name: 'Manual Test Product',
+                price: 999,
+                description: 'This is a manual test',
+                image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f'
+            };
+            addToCart(testProduct);
+            updateCartDisplay();
+        }
+        
+        // Update cart display
+        function updateCartDisplay() {
+            const cartDisplay = document.getElementById('cartDisplay');
+            const currentCart = JSON.parse(localStorage.getItem('vrindaCart')) || [];
+            
+            if (currentCart.length === 0) {
+                cartDisplay.innerHTML = '<p>Cart is empty</p>';
+            } else {
+                cartDisplay.innerHTML = '<ul>' + 
+                    currentCart.map(item => 
+                        `<li>${item.name} - ₹${item.price} (Qty: ${item.quantity})</li>`
+                    ).join('') + 
+                '</ul>';
+            }
+        }
+        
+        // Update display on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCartDisplay();
+            console.log('Debug test page loaded');
+        });
+    </script>
+</body>
+</html>

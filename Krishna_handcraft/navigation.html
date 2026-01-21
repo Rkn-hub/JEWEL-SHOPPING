@@ -1,0 +1,46 @@
+<!-- Reusable Navigation Component for Artisan Beads -->
+<!-- Include this in other pages by copying the navigation structure -->
+
+<div class="fixed top-0 left-0 w-full z-50 flex justify-center px-4 pt-6 transition-all duration-300 pointer-events-none">
+    <header class="pointer-events-auto flex items-center justify-between gap-8 px-6 py-3 w-full max-w-[1024px] rounded-full bg-white/70 dark:bg-black/60 backdrop-blur-md border border-white/40 dark:border-white/10 shadow-sm hover:shadow-md transition-all duration-300">
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
+            <a class="flex items-center gap-2 text-slate-900 dark:text-white group" href="../../index.html">
+                <div class="size-6 text-primary">
+                    <span class="material-symbols-outlined !text-[24px]">auto_awesome</span>
+                </div>
+                <span class="text-lg font-bold tracking-tight group-hover:text-primary transition-colors">ARTISAN BEADS</span>
+            </a>
+        </div>
+        <!-- Nav Links (Desktop) -->
+        <nav class="hidden md:flex items-center gap-8">
+            <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="../product_listing_page_1/code.html">Collections</a>
+            <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="../product_detail_view_1/code.html">Featured</a>
+            <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="../dark_mode_about_us_page_1/code.html">About</a>
+            <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="../dark_mode_contact_us_page_1/code.html">Contact</a>
+        </nav>
+        <!-- Icons -->
+        <div class="flex items-center gap-2">
+            <button class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-900 dark:text-white transition-colors" onclick="openSearch()">
+                <span class="material-symbols-outlined !text-[20px]">search</span>
+            </button>
+            <button class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-900 dark:text-white transition-colors relative" onclick="openCart()">
+                <span class="material-symbols-outlined !text-[20px]">shopping_bag</span>
+                <span class="absolute top-2 right-2 size-2 bg-primary rounded-full"></span>
+            </button>
+            <a href="../dark_mode_user_dashboard_1/code.html" class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-900 dark:text-white transition-colors">
+                <span class="material-symbols-outlined !text-[20px]">person</span>
+            </a>
+        </div>
+    </header>
+</div>
+
+<script>
+    function openSearch() {
+        window.location.href = '../dark_mode_search_overlay_1/code.html';
+    }
+
+    function openCart() {
+        window.location.href = '../slide-out_shopping_cart_1/code.html';
+    }
+</script>

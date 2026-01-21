@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Settings - The Vrinda Creation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#E07A5F",
+                        "secondary": "#81B29A",
+                        "accent": "#3D5A80",
+                        "background-light": "#f8f9fa",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+    <!-- Floating Navigation Bar -->
+    <div
+        class="fixed top-0 left-0 w-full z-50 flex justify-center px-4 pt-6 transition-all duration-300 pointer-events-none">
+        <header
+            class="pointer-events-auto flex items-center justify-between gap-8 px-6 py-3 w-full max-w-[1024px] rounded-full bg-white/70 dark:bg-black/60 backdrop-blur-md border border-white/40 dark:border-white/10 shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="flex items-center gap-2">
+                <a class="flex items-center gap-2 text-slate-900 dark:text-white group" href="index.html">
+                    <img src="logo.png" alt="The Vrinda Creation Logo" class="h-10 w-10 object-contain">
+                    <span class="text-lg font-bold tracking-tight group-hover:text-primary transition-colors">The Vrinda
+                        Creation</span>
+                </a>
+            </div>
+            <nav class="hidden md:flex items-center gap-8">
+                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="products.html">Collections</a>
+                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="product-detail.html">Featured</a>
+                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="about.html">About</a>
+                <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="contact.html">Contact</a>
+            </nav>
+            <div class="flex items-center gap-2">
+                <button onclick="toggleDarkMode()"
+                    class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-900 dark:text-white transition-colors"
+                    title="Toggle theme">
+                    <span class="material-symbols-outlined !text-[20px] dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined !text-[20px] hidden dark:block">light_mode</span>
+                </button>
+                <a href="search.html"
+                    class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-900 dark:text-white transition-colors">
+                    <span class="material-symbols-outlined !text-[20px]">search</span>
+                </a>
+                <a href="cart.html"
+                    class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-900 dark:text-white transition-colors relative">
+                    <span class="material-symbols-outlined !text-[20px]">shopping_bag</span>
+                </a>
+                <a href="profile.html"
+                    class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-900 dark:text-white transition-colors">
+                    <span class="material-symbols-outlined !text-[20px]">person</span>
+                </a>
+            </div>
+        </header>
+    </div>
+
+    <!-- Main Content -->
+    <div class="min-h-screen pt-32 pb-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <!-- Header -->
+            <div class="mb-8">
+                <div class="flex items-center gap-3 mb-2">
+                    <a href="profile.html"
+                        class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </a>
+                    <h1 class="text-3xl font-bold">Settings</h1>
+                </div>
+                <p class="text-slate-600 dark:text-slate-300">Manage your account settings and preferences</p>
+            </div>
+
+            <!-- Settings Sections -->
+            <div class="space-y-6">
+                <!-- Account Information -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm">
+                    <h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">person</span>
+                        Account Information
+                    </h2>
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">First Name</label>
+                                <input type="text" value="Jane"
+                                    class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Last Name</label>
+                                <input type="text" value="Doe"
+                                    class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" />
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Email Address</label>
+                            <input type="email" value="jane.doe@example.com"
+                                class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Phone Number</label>
+                            <input type="tel" value="+91 98765 43210"
+                                class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" />
+                        </div>
+                        <button
+                            class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg transition-all">
+                            Save Changes
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm">
+                    <h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">lock</span>
+                        Password & Security
+                    </h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Current Password</label>
+                            <input type="password" placeholder="Enter current password"
+                                class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">New Password</label>
+                            <input type="password" placeholder="Enter new password"
+                                class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Confirm New Password</label>
+                            <input type="password" placeholder="Confirm new password"
+                                class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" />
+                        </div>
+                        <button
+                            class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg transition-all">
+                            Update Password
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Preferences -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm">
+                    <h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">tune</span>
+                        Preferences
+                    </h2>
+                    <div class="space-y-6">
+                        <!-- Theme -->
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="font-medium">Theme</p>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">Choose your preferred theme</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <select id="themeSelect" onchange="changeThemeFromSettings(this.value)"
+                                    class="px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
+                                    <option value="light">Light</option>
+                                    <option value="dark">Dark</option>
+                                    <option value="system">System</option>
+                                </select>
+                                <button onclick="toggleDarkMode()"
+                                    class="flex items-center justify-center w-10 h-10 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                                    title="Quick toggle theme">
+                                    <span class="material-symbols-outlined text-[20px] dark:hidden">dark_mode</span>
+                                    <span
+                                        class="material-symbols-outlined text-[20px] hidden dark:block">light_mode</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Language -->
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="font-medium">Language</p>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">Select your preferred language</p>
+                            </div>
+                            <select
+                                class="px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
+                                <option>English</option>
+                                <option>Hindi</option>
+                            </select>
+                        </div>
+
+                        <!-- Currency -->
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="font-medium">Currency</p>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">Choose your currency</p>
+                            </div>
+                            <select
+                                class="px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
+                                <option>INR (₹)</option>
+                                <option>USD ($)</option>
+                                <option>EUR (€)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm">
+                    <h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">notifications</span>
+                        Notifications
+                    </h2>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="font-medium">Order Updates</p>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">Get notified about your order
+                                    status</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" checked class="sr-only peer">
+                                <div
+                                    class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-600 peer-checked:bg-primary">
+                                </div>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="font-medium">Promotions & Offers</p>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">Receive exclusive deals and
+                                    discounts</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" checked class="sr-only peer">
+                                <div
+                                    class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-600 peer-checked:bg-primary">
+                                </div>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="font-medium">New Arrivals</p>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">Be the first to know about new
+                                    products</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only peer">
+                                <div
+                                    class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-600 peer-checked:bg-primary">
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Danger Zone -->
+                <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-2xl p-6">
+                    <h2 class="text-xl font-bold mb-4 text-red-700 dark:text-red-400 flex items-center gap-2">
+                        <span class="material-symbols-outlined">warning</span>
+                        Danger Zone
+                    </h2>
+                    <p class="text-sm text-red-600 dark:text-red-300 mb-4">Once you delete your account, there is no
+                        going back. Please be certain.</p>
+                    <button
+                        class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition-all">
+                        Delete Account
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-background-dark border-t border-slate-100 dark:border-slate-800">
+        <div class="max-w-[1440px] mx-auto px-6 md:px-20 py-16">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-10">
+                <div class="flex flex-col items-center md:items-start gap-4">
+                    <div class="flex items-center gap-2 text-slate-900 dark:text-white">
+                        <img src="logo.png" alt="The Vrinda Creation Logo" class="h-10 w-10 object-contain">
+                        <span class="text-lg font-bold tracking-tight">The Vrinda Creation</span>
+                    </div>
+                    <p class="text-slate-500 text-sm max-w-xs text-center md:text-left">
+                        Creating beautiful handcrafted beaded jewelry with love, creativity, and sustainable practices.
+                    </p>
+                </div>
+                <div
+                    class="flex flex-wrap items-center justify-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-400">
+                    <a class="hover:text-primary transition-colors" href="products.html">Shop</a>
+                    <a class="hover:text-primary transition-colors" href="about.html">About</a>
+                    <a class="hover:text-primary transition-colors" href="contact.html">Contact</a>
+                    <a class="hover:text-primary transition-colors" href="faq.html">FAQ</a>
+                    <a class="hover:text-primary transition-colors" href="order-confirmation.html">Track Order</a>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 text-center">
+                <p class="text-slate-400 text-xs font-normal">© 2024 The Vrinda Creation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-client.js"></script>
+    <script src="main.js"></script>
+    <script src="auth.js"></script>
+</body>
+
+</html>
