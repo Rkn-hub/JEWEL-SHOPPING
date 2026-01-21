@@ -2,6 +2,36 @@
 // Handles all interactive functionality across the website
 
 // ============================================
+// MOBILE MENU FUNCTIONALITY
+// ============================================
+
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('mobileMenuOverlay');
+
+    if (menu && overlay) {
+        menu.classList.toggle('open');
+        overlay.classList.toggle('open');
+
+        // Prevent body scroll when menu is open
+        if (menu.classList.contains('open')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    }
+}
+
+// Close mobile menu on escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const menu = document.getElementById('mobileMenu');
+        if (menu && menu.classList.contains('open')) {
+            toggleMobileMenu();
+        }
+    }
+});
+// ============================================
 // CART FUNCTIONALITY
 // ============================================
 

@@ -73,6 +73,27 @@
             background: rgba(16, 28, 34, 0.7);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
+
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-overlay {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .mobile-menu-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
     </style>
 </head>
 
@@ -85,9 +106,9 @@
                 class="frosted-glass flex w-full max-w-5xl items-center justify-between rounded-xl px-6 py-3 shadow-sm">
                 <!-- Logo -->
                 <a href="index.html"
-                    class="flex items-center gap-4 text-slate-900 dark:text-white hover:opacity-80 transition-opacity">
-                    <img src="logo.png" alt="The Vrinda Creation Logo" class="h-10 w-10 object-contain">
-                    <h2 class="text-lg font-bold tracking-tight">The Vrinda Creation</h2>
+                    class="flex items-center gap-2 sm:gap-4 text-slate-900 dark:text-white hover:opacity-80 transition-opacity">
+                    <img src="logo.png" alt="The Vrinda Creation Logo" class="h-8 w-8 sm:h-10 sm:w-10 object-contain">
+                    <h2 class="hidden sm:block text-lg font-bold tracking-tight">The Vrinda Creation</h2>
                 </a>
                 <!-- Desktop Links -->
                 <nav class="hidden md:flex flex-1 justify-center">
@@ -124,8 +145,68 @@
                         data-alt="User profile avatar"
                         style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBWs5cNbGq0AnAtvfqVulNX9av8oyKy5VSm2zicrolFFwXXqjHhZw7HlDgwnYc_eCy6a2oUkaJ-aR3U6heNR4kMXkovv78ybt207Kne0jOEbV38pLanRILAzmK0NOJ55qbx13L2OiG2GULUSWNNK4sEGkA0Khiyhky1Dd14qLQoVPxm1aFov82hD1SSz_qUx6YMbtfpFCU4Ql5dFokFcqnNXLL0la9ljufrbGlG5TYeSdYlkrv_WPrh5deRmfGHMeY-y00E8kHXUhPD");'>
                     </a>
+                    <!-- Mobile Menu Button -->
+                    <button onclick="toggleMobileMenu()"
+                        class="md:hidden flex size-9 items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors text-slate-900 dark:text-white"
+                        title="Menu">
+                        <span class="material-symbols-outlined text-[20px]">menu</span>
+                    </button>
                 </div>
             </header>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobileMenuOverlay" class="mobile-menu-overlay fixed inset-0 bg-black/50 z-[60]"
+            onclick="toggleMobileMenu()"></div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu"
+            class="mobile-menu fixed top-0 right-0 h-full w-72 bg-white dark:bg-slate-900 z-[70] shadow-2xl">
+            <div class="flex items-center justify-between p-6 border-b border-slate-200 dark:border-slate-800">
+                <span class="text-lg font-bold text-slate-900 dark:text-white">Menu</span>
+                <button onclick="toggleMobileMenu()"
+                    class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-900 dark:text-white transition-colors">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <nav class="p-6 space-y-2">
+                <a href="index.html"
+                    class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-900 dark:text-white transition-colors">
+                    <span class="material-symbols-outlined">home</span>
+                    <span class="font-medium">Home</span>
+                </a>
+                <a href="products.html"
+                    class="flex items-center gap-3 p-3 rounded-lg bg-primary/10 text-primary transition-colors">
+                    <span class="material-symbols-outlined">category</span>
+                    <span class="font-medium">Collections</span>
+                </a>
+                <a href="product-detail.html"
+                    class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-900 dark:text-white transition-colors">
+                    <span class="material-symbols-outlined">star</span>
+                    <span class="font-medium">Featured</span>
+                </a>
+                <a href="about.html"
+                    class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-900 dark:text-white transition-colors">
+                    <span class="material-symbols-outlined">info</span>
+                    <span class="font-medium">About</span>
+                </a>
+                <a href="contact.html"
+                    class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-900 dark:text-white transition-colors">
+                    <span class="material-symbols-outlined">mail</span>
+                    <span class="font-medium">Contact</span>
+                </a>
+                <hr class="my-4 border-slate-200 dark:border-slate-800">
+                <a href="profile.html"
+                    class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-900 dark:text-white transition-colors">
+                    <span class="material-symbols-outlined">person</span>
+                    <span class="font-medium">My Account</span>
+                </a>
+                <a href="cart.html"
+                    class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-900 dark:text-white transition-colors">
+                    <span class="material-symbols-outlined">shopping_bag</span>
+                    <span class="font-medium">Cart</span>
+                </a>
+            </nav>
         </div>
         <main class="flex-1 px-4 md:px-6 pt-32 pb-16 flex flex-col items-center">
             <div class="w-full max-w-5xl">
