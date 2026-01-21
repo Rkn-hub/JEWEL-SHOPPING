@@ -1,5 +1,16 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="en">
+<script>
+    (function () {
+        const savedTheme = localStorage.getItem('vrindaTheme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.add('light');
+        }
+    })();
+</script>
 
 <head>
     <meta charset="utf-8" />
@@ -69,6 +80,7 @@
                 transform: translateX(-100%);
                 opacity: 0;
             }
+
             to {
                 transform: translateX(0);
                 opacity: 1;
@@ -171,17 +183,19 @@
                     <div class="relative hidden md:block">
                         <input type="text" placeholder="Search..."
                             class="w-64 pl-10 pr-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none">
-                        <span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-[20px]">search</span>
+                        <span
+                            class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-[20px]">search</span>
                     </div>
-                    
+
                     <!-- Notifications -->
-                    <button class="relative p-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
+                    <button
+                        class="relative p-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
                         <span class="material-symbols-outlined text-[24px]">notifications</span>
                         <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
                     </button>
 
                     <!-- Theme Toggle -->
-                    <button onclick="toggleDarkMode()" 
+                    <button onclick="toggleDarkMode()"
                         class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-900 dark:text-white transition-colors"
                         title="Toggle theme">
                         <span class="material-symbols-outlined !text-[20px] dark:hidden">dark_mode</span>
@@ -189,7 +203,7 @@
                     </button>
 
                     <!-- Back to Website -->
-                    <a href="index.html" 
+                    <a href="index.html"
                         class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
                         <span class="material-symbols-outlined text-[20px]">arrow_back</span>
                         <span class="hidden sm:inline">Back to Website</span>
@@ -204,53 +218,61 @@
             <div id="dashboard-section" class="section active">
                 <!-- Stats Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
+                    <div
+                        class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-sm text-slate-600 dark:text-slate-400">Total Orders</p>
                                 <p class="text-2xl font-bold text-slate-900 dark:text-white">0</p>
                                 <p class="text-sm text-slate-500">Start taking orders!</p>
                             </div>
-                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                            <div
+                                class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
                                 <span class="material-symbols-outlined text-blue-600 text-[24px]">shopping_cart</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
+                    <div
+                        class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-sm text-slate-600 dark:text-slate-400">Revenue</p>
                                 <p class="text-2xl font-bold text-slate-900 dark:text-white">₹0</p>
                                 <p class="text-sm text-slate-500">Ready to grow!</p>
                             </div>
-                            <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
+                            <div
+                                class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
                                 <span class="material-symbols-outlined text-green-600 text-[24px]">trending_up</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
+                    <div
+                        class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-sm text-slate-600 dark:text-slate-400">Total Users</p>
                                 <p class="text-2xl font-bold text-slate-900 dark:text-white">1</p>
                                 <p class="text-sm text-slate-500">Admin account active</p>
                             </div>
-                            <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
+                            <div
+                                class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
                                 <span class="material-symbols-outlined text-purple-600 text-[24px]">people</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
+                    <div
+                        class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-sm text-slate-600 dark:text-slate-400">Products</p>
                                 <p class="text-2xl font-bold text-slate-900 dark:text-white">6</p>
                                 <p class="text-sm text-blue-600">Ready to sell</p>
                             </div>
-                            <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center">
+                            <div
+                                class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center">
                                 <span class="material-symbols-outlined text-orange-600 text-[24px]">inventory</span>
                             </div>
                         </div>
@@ -260,7 +282,8 @@
                 <!-- Charts Row -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
                     <!-- Sales Chart -->
-                    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
+                    <div
+                        class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
                         <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Sales Overview</h3>
                         <div class="chart-container">
                             <canvas id="salesChart"></canvas>
@@ -268,7 +291,8 @@
                     </div>
 
                     <!-- Orders Chart -->
-                    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
+                    <div
+                        class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
                         <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Order Status</h3>
                         <div class="chart-container">
                             <canvas id="ordersChart"></canvas>
@@ -285,23 +309,37 @@
                         <table class="w-full">
                             <thead class="bg-slate-50 dark:bg-slate-700/50">
                                 <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Order ID</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Customer</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Amount</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Status</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Date</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                        Order ID</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                        Customer</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                        Amount</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                        Status</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                        Date</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-slate-200 dark:divide-slate-700">
                                 <tr>
                                     <td colspan="5" class="px-6 py-12 text-center">
                                         <div class="flex flex-col items-center gap-3">
-                                            <div class="w-16 h-16 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center">
-                                                <span class="material-symbols-outlined text-slate-400 text-[32px]">shopping_cart</span>
+                                            <div
+                                                class="w-16 h-16 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center">
+                                                <span
+                                                    class="material-symbols-outlined text-slate-400 text-[32px]">shopping_cart</span>
                                             </div>
                                             <div>
-                                                <p class="text-slate-600 dark:text-slate-400 font-medium">No orders yet</p>
-                                                <p class="text-sm text-slate-500 dark:text-slate-500">Orders will appear here when customers start purchasing</p>
+                                                <p class="text-slate-600 dark:text-slate-400 font-medium">No orders yet
+                                                </p>
+                                                <p class="text-sm text-slate-500 dark:text-slate-500">Orders will appear
+                                                    here when customers start purchasing</p>
                                             </div>
                                         </div>
                                     </td>
@@ -316,7 +354,8 @@
                 <div class="flex justify-between items-center mb-6">
                     <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Orders Management</h3>
                     <div class="flex gap-3">
-                        <select class="px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
+                        <select
+                            class="px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
                             <option>All Orders</option>
                             <option>Pending</option>
                             <option>Processing</option>
@@ -324,7 +363,8 @@
                             <option>Delivered</option>
                             <option>Cancelled</option>
                         </select>
-                        <button onclick="exportOrders()" class="px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary/90 transition-colors flex items-center gap-2">
+                        <button onclick="exportOrders()"
+                            class="px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary/90 transition-colors flex items-center gap-2">
                             <span class="material-symbols-outlined text-[20px]">download</span>
                             Export
                         </button>
@@ -336,15 +376,28 @@
                         <table class="w-full">
                             <thead class="bg-slate-50 dark:bg-slate-700/50">
                                 <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                                         <input type="checkbox" class="rounded border-slate-300 dark:border-slate-600">
                                     </th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Order Details</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Customer</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Products</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Amount</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Status</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Actions</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                        Order Details</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                        Customer</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                        Products</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                        Amount</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                        Status</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                        Actions</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-slate-200 dark:divide-slate-700" id="ordersTableBody">
@@ -352,12 +405,16 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="px-6 py-4 border-t border-slate-200 dark:border-slate-700 flex justify-between items-center">
+                    <div
+                        class="px-6 py-4 border-t border-slate-200 dark:border-slate-700 flex justify-between items-center">
                         <p class="text-sm text-slate-600 dark:text-slate-400">No orders to display</p>
                         <div class="flex gap-2">
-                            <button disabled class="px-3 py-1 rounded border border-slate-300 dark:border-slate-600 text-slate-400 dark:text-slate-500 cursor-not-allowed">Previous</button>
-                            <button disabled class="px-3 py-1 rounded border border-slate-300 dark:border-slate-600 text-slate-400 dark:text-slate-500 cursor-not-allowed">1</button>
-                            <button disabled class="px-3 py-1 rounded border border-slate-300 dark:border-slate-600 text-slate-400 dark:text-slate-500 cursor-not-allowed">Next</button>
+                            <button disabled
+                                class="px-3 py-1 rounded border border-slate-300 dark:border-slate-600 text-slate-400 dark:text-slate-500 cursor-not-allowed">Previous</button>
+                            <button disabled
+                                class="px-3 py-1 rounded border border-slate-300 dark:border-slate-600 text-slate-400 dark:text-slate-500 cursor-not-allowed">1</button>
+                            <button disabled
+                                class="px-3 py-1 rounded border border-slate-300 dark:border-slate-600 text-slate-400 dark:text-slate-500 cursor-not-allowed">Next</button>
                         </div>
                     </div>
                 </div>
@@ -367,7 +424,8 @@
             <div id="products-section" class="section hidden">
                 <div class="flex justify-between items-center mb-6">
                     <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Products Management</h3>
-                    <button onclick="openAddProductModal()" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors flex items-center gap-2">
+                    <button onclick="openAddProductModal()"
+                        class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors flex items-center gap-2">
                         <span class="material-symbols-outlined text-[20px]">add</span>
                         Add Product
                     </button>
@@ -383,13 +441,15 @@
                 <div class="flex justify-between items-center mb-6">
                     <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Users Management</h3>
                     <div class="flex gap-3">
-                        <select class="px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
+                        <select
+                            class="px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
                             <option>All Users</option>
                             <option>Active</option>
                             <option>Inactive</option>
                             <option>Premium</option>
                         </select>
-                        <button onclick="exportUsers()" class="px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary/90 transition-colors flex items-center gap-2">
+                        <button onclick="exportUsers()"
+                            class="px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary/90 transition-colors flex items-center gap-2">
                             <span class="material-symbols-outlined text-[20px]">download</span>
                             Export
                         </button>
@@ -401,13 +461,27 @@
                         <table class="w-full">
                             <thead class="bg-slate-50 dark:bg-slate-700/50">
                                 <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">User</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Email</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Orders</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Total Spent</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Status</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Joined</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Actions</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                        User</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                        Email</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                        Orders</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                        Total Spent</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                        Status</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                        Joined</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                        Actions</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-slate-200 dark:divide-slate-700" id="usersTableBody">
@@ -421,13 +495,16 @@
             <!-- Analytics Section -->
             <div id="analytics-section" class="section hidden">
                 <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Analytics & Reports</h3>
-                
+
                 <!-- Date Range Selector -->
-                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 mb-6">
+                <div
+                    class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 mb-6">
                     <div class="flex flex-wrap gap-4 items-center">
                         <div>
-                            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Date Range</label>
-                            <select class="px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
+                            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Date
+                                Range</label>
+                            <select
+                                class="px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
                                 <option>Last 7 days</option>
                                 <option>Last 30 days</option>
                                 <option>Last 3 months</option>
@@ -436,14 +513,18 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">From</label>
-                            <input type="date" class="px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
+                            <label
+                                class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">From</label>
+                            <input type="date"
+                                class="px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">To</label>
-                            <input type="date" class="px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
+                            <input type="date"
+                                class="px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
                         </div>
-                        <button class="mt-6 px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                        <button
+                            class="mt-6 px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
                             Apply Filter
                         </button>
                     </div>
@@ -451,14 +532,16 @@
 
                 <!-- Analytics Charts -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
+                    <div
+                        class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
                         <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Revenue Trends</h4>
                         <div class="chart-container">
                             <canvas id="revenueChart"></canvas>
                         </div>
                     </div>
-                    
-                    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
+
+                    <div
+                        class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
                         <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Top Products</h4>
                         <div class="chart-container">
                             <canvas id="topProductsChart"></canvas>
@@ -468,19 +551,22 @@
 
                 <!-- Key Metrics -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
+                    <div
+                        class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
                         <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Conversion Rate</h4>
                         <div class="text-3xl font-bold text-primary mb-2">0%</div>
                         <p class="text-sm text-slate-500">Start tracking conversions</p>
                     </div>
-                    
-                    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
+
+                    <div
+                        class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
                         <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Average Order Value</h4>
                         <div class="text-3xl font-bold text-primary mb-2">₹0</div>
                         <p class="text-sm text-slate-500">Waiting for first orders</p>
                     </div>
-                    
-                    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
+
+                    <div
+                        class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
                         <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Customer Retention</h4>
                         <div class="text-3xl font-bold text-primary mb-2">0%</div>
                         <p class="text-sm text-slate-500">Build customer relationships</p>
@@ -491,27 +577,36 @@
             <!-- Settings Section -->
             <div id="settings-section" class="section hidden">
                 <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Settings</h3>
-                
+
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <!-- General Settings -->
-                    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
+                    <div
+                        class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
                         <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">General Settings</h4>
                         <div class="space-y-4">
                             <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Store Name</label>
-                                <input type="text" value="The Vrinda Creation" class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Store
+                                    Name</label>
+                                <input type="text" value="The Vrinda Creation"
+                                    class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Store Email</label>
-                                <input type="email" value="thevrindacreation@gmail.com" class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Store
+                                    Email</label>
+                                <input type="email" value="thevrindacreation@gmail.com"
+                                    class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Phone Number</label>
-                                <input type="tel" value="+91 8384074307" class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Phone
+                                    Number</label>
+                                <input type="tel" value="+91 8384074307"
+                                    class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Currency</label>
-                                <select class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
+                                <label
+                                    class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Currency</label>
+                                <select
+                                    class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
                                     <option>INR (₹)</option>
                                     <option>USD ($)</option>
                                     <option>EUR (€)</option>
@@ -521,37 +616,47 @@
                     </div>
 
                     <!-- Notification Settings -->
-                    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
+                    <div
+                        class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
                         <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Notifications</h4>
                         <div class="space-y-4">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <p class="font-medium text-slate-900 dark:text-white">New Orders</p>
-                                    <p class="text-sm text-slate-600 dark:text-slate-400">Get notified when new orders are placed</p>
+                                    <p class="text-sm text-slate-600 dark:text-slate-400">Get notified when new orders
+                                        are placed</p>
                                 </div>
                                 <label class="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" checked class="sr-only peer">
-                                    <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/20 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-600 peer-checked:bg-primary"></div>
+                                    <div
+                                        class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/20 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-600 peer-checked:bg-primary">
+                                    </div>
                                 </label>
                             </div>
                             <div class="flex items-center justify-between">
                                 <div>
                                     <p class="font-medium text-slate-900 dark:text-white">Low Stock Alerts</p>
-                                    <p class="text-sm text-slate-600 dark:text-slate-400">Alert when products are running low</p>
+                                    <p class="text-sm text-slate-600 dark:text-slate-400">Alert when products are
+                                        running low</p>
                                 </div>
                                 <label class="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" checked class="sr-only peer">
-                                    <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/20 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-600 peer-checked:bg-primary"></div>
+                                    <div
+                                        class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/20 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-600 peer-checked:bg-primary">
+                                    </div>
                                 </label>
                             </div>
                             <div class="flex items-center justify-between">
                                 <div>
                                     <p class="font-medium text-slate-900 dark:text-white">Customer Messages</p>
-                                    <p class="text-sm text-slate-600 dark:text-slate-400">Notifications for customer inquiries</p>
+                                    <p class="text-sm text-slate-600 dark:text-slate-400">Notifications for customer
+                                        inquiries</p>
                                 </div>
                                 <label class="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" class="sr-only peer">
-                                    <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/20 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-600 peer-checked:bg-primary"></div>
+                                    <div
+                                        class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/20 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-600 peer-checked:bg-primary">
+                                    </div>
                                 </label>
                             </div>
                         </div>
@@ -560,7 +665,8 @@
 
                 <!-- Save Button -->
                 <div class="mt-6">
-                    <button onclick="saveSettings()" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors flex items-center gap-2">
+                    <button onclick="saveSettings()"
+                        class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors flex items-center gap-2">
                         <span class="material-symbols-outlined text-[20px]">save</span>
                         Save Settings
                     </button>
@@ -574,29 +680,37 @@
         <div class="bg-white dark:bg-slate-800 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div class="p-6 border-b border-slate-200 dark:border-slate-700 flex justify-between items-center">
                 <h3 class="text-xl font-semibold text-slate-900 dark:text-white">Add New Product</h3>
-                <button onclick="closeAddProductModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+                <button onclick="closeAddProductModal()"
+                    class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
                     <span class="material-symbols-outlined text-[24px]">close</span>
                 </button>
             </div>
             <form class="p-6 space-y-4" onsubmit="addProduct(event)">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Product Name</label>
-                        <input type="text" required class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
+                        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Product
+                            Name</label>
+                        <input type="text" required
+                            class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Price (₹)</label>
-                        <input type="number" required class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
+                        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Price
+                            (₹)</label>
+                        <input type="number" required
+                            class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
                     </div>
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Description</label>
-                    <textarea rows="3" class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white"></textarea>
+                    <textarea rows="3"
+                        class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white"></textarea>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Category</label>
-                        <select class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
+                        <label
+                            class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Category</label>
+                        <select
+                            class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
                             <option>Necklaces</option>
                             <option>Earrings</option>
                             <option>Bracelets</option>
@@ -604,8 +718,10 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Material</label>
-                        <select class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
+                        <label
+                            class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Material</label>
+                        <select
+                            class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
                             <option>Glass Beads</option>
                             <option>Wooden Beads</option>
                             <option>Stone Beads</option>
@@ -615,14 +731,18 @@
                     </div>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Product Image URL</label>
-                    <input type="url" placeholder="https://example.com/image.jpg" class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
+                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Product Image
+                        URL</label>
+                    <input type="url" placeholder="https://example.com/image.jpg"
+                        class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
                 </div>
                 <div class="flex justify-end gap-3 pt-4">
-                    <button type="button" onclick="closeAddProductModal()" class="px-4 py-2 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+                    <button type="button" onclick="closeAddProductModal()"
+                        class="px-4 py-2 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
                         Cancel
                     </button>
-                    <button type="submit" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                    <button type="submit"
+                        class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
                         Add Product
                     </button>
                 </div>
@@ -635,7 +755,8 @@
         <div class="bg-white dark:bg-slate-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div class="p-6 border-b border-slate-200 dark:border-slate-700 flex justify-between items-center">
                 <h3 class="text-xl font-semibold text-slate-900 dark:text-white">Order Details</h3>
-                <button onclick="closeOrderDetailsModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+                <button onclick="closeOrderDetailsModal()"
+                    class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
                     <span class="material-symbols-outlined text-[24px]">close</span>
                 </button>
             </div>

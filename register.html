@@ -1,5 +1,16 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="en">
+<script>
+    (function () {
+        const savedTheme = localStorage.getItem('vrindaTheme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.add('light');
+        }
+    })();
+</script>
 
 <head>
     <meta charset="utf-8" />

@@ -1,21 +1,39 @@
 ﻿<!DOCTYPE html>
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Order Confirmation | The Vrinda Creation</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+
+<html lang="en">
+<script>
+    (function () {
+        const savedTheme = localStorage.getItem('vrindaTheme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.add('light');
+        }
+    })();
+</script>
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Order Confirmation | The Vrinda Creation</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
                         "primary": "#E07A5F",
-                        "secondary": "#81B29A", 
+                        "secondary": "#81B29A",
                         "accent": "#3D5A80",
                         "background-light": "#f6f7f8",
                         "background-dark": "#101c22",
@@ -33,156 +51,201 @@
             },
         }
     </script>
-<style>
+    <style>
         .frosted-glass {
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col overflow-x-hidden">
-<!-- Top Navigation Bar (Frosted Glass Effect) -->
-<header class="fixed top-0 left-0 right-0 z-50 frosted-glass bg-white/70 dark:bg-background-dark/70 border-b border-slate-200/50 dark:border-slate-800/50">
-<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-<div class="flex items-center gap-2">
-<div class="size-6 text-primary">
-<span class="material-symbols-outlined text-[24px]">auto_awesome</span>
-</div>
-<div class="flex items-center gap-2"><img src="logo.png" alt="The Vrinda Creation Logo" class="h-10 w-10 object-contain"><h1 class="text-xl font-bold tracking-[-0.03em]">The Vrinda Creation</h1></div>
-</div>
-<nav class="hidden md:flex items-center gap-10">
-<a class="text-sm font-medium hover:text-primary transition-colors" href="products.html">Collections</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="product-detail.html">Featured</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="about.html">About</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="contact.html">Contact</a>
-</nav>
-<div class="flex items-center gap-4">
-<button onclick="toggleDarkMode()" class="flex items-center justify-center rounded-full size-10 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all" title="Toggle theme">
-<span class="material-symbols-outlined text-[20px] dark:hidden">dark_mode</span>
-<span class="material-symbols-outlined text-[20px] hidden dark:block">light_mode</span>
-</button>
-<a href="search.html" class="flex items-center justify-center rounded-full size-10 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
-<span class="material-symbols-outlined text-[20px]">search</span>
-</a>
-<a href="cart.html" class="flex items-center justify-center rounded-full size-10 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
-<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
-</a>
-<a href="profile.html" class="flex items-center justify-center rounded-full size-10 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
-<span class="material-symbols-outlined text-[20px]">person</span>
-</a>
-</div>
-</div>
-</header>
-<!-- Main Content -->
-<main class="flex-1 mt-32 mb-20 px-6">
-<div class="max-w-[800px] mx-auto flex flex-col items-center">
-<!-- Success Icon -->
-<div class="mb-8 flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 text-primary">
-<span class="material-symbols-outlined text-[48px] font-thin">check_circle</span>
-</div>
-<!-- Headline Section -->
-<div class="text-center space-y-3 mb-12">
-<h2 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white">Thank you for your order!</h2>
-<p class="text-slate-500 dark:text-slate-400 text-lg">Order #VRC-482910 • A confirmation email is on its way to your inbox.</p>
-</div>
-<!-- Summary Details -->
-<div class="w-full bg-white dark:bg-slate-900/50 rounded-xl border border-slate-200/60 dark:border-slate-800/60 overflow-hidden shadow-sm">
-<div class="p-8 border-b border-slate-100 dark:border-slate-800">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div>
-<p class="text-[11px] uppercase tracking-widest text-slate-400 font-semibold mb-1">Status</p>
-<p class="text-sm font-medium flex items-center gap-2">
-<span class="size-2 rounded-full bg-primary animate-pulse"></span>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col overflow-x-hidden">
+    <!-- Top Navigation Bar (Frosted Glass Effect) -->
+    <header
+        class="fixed top-0 left-0 right-0 z-50 frosted-glass bg-white/70 dark:bg-background-dark/70 border-b border-slate-200/50 dark:border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="size-6 text-primary">
+                    <span class="material-symbols-outlined text-[24px]">auto_awesome</span>
+                </div>
+                <div class="flex items-center gap-2"><img src="logo.png" alt="The Vrinda Creation Logo"
+                        class="h-10 w-10 object-contain">
+                    <h1 class="text-xl font-bold tracking-[-0.03em]">The Vrinda Creation</h1>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center gap-10">
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="products.html">Collections</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors"
+                    href="product-detail.html">Featured</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="about.html">About</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="contact.html">Contact</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button onclick="toggleDarkMode()"
+                    class="flex items-center justify-center rounded-full size-10 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all"
+                    title="Toggle theme">
+                    <span class="material-symbols-outlined text-[20px] dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined text-[20px] hidden dark:block">light_mode</span>
+                </button>
+                <a href="search.html"
+                    class="flex items-center justify-center rounded-full size-10 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
+                    <span class="material-symbols-outlined text-[20px]">search</span>
+                </a>
+                <a href="cart.html"
+                    class="flex items-center justify-center rounded-full size-10 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
+                    <span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+                </a>
+                <a href="profile.html"
+                    class="flex items-center justify-center rounded-full size-10 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
+                    <span class="material-symbols-outlined text-[20px]">person</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <main class="flex-1 mt-32 mb-20 px-6">
+        <div class="max-w-[800px] mx-auto flex flex-col items-center">
+            <!-- Success Icon -->
+            <div class="mb-8 flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 text-primary">
+                <span class="material-symbols-outlined text-[48px] font-thin">check_circle</span>
+            </div>
+            <!-- Headline Section -->
+            <div class="text-center space-y-3 mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white">Thank you for
+                    your order!</h2>
+                <p class="text-slate-500 dark:text-slate-400 text-lg">Order #VRC-482910 • A confirmation email is on its
+                    way to your inbox.</p>
+            </div>
+            <!-- Summary Details -->
+            <div
+                class="w-full bg-white dark:bg-slate-900/50 rounded-xl border border-slate-200/60 dark:border-slate-800/60 overflow-hidden shadow-sm">
+                <div class="p-8 border-b border-slate-100 dark:border-slate-800">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div>
+                            <p class="text-[11px] uppercase tracking-widest text-slate-400 font-semibold mb-1">Status
+                            </p>
+                            <p class="text-sm font-medium flex items-center gap-2">
+                                <span class="size-2 rounded-full bg-primary animate-pulse"></span>
                                 Processing
                             </p>
-</div>
-<div>
-<p class="text-[11px] uppercase tracking-widest text-slate-400 font-semibold mb-1">Estimated Delivery</p>
-<p class="text-sm font-medium">October 24, 2023</p>
-</div>
-<div>
-<p class="text-[11px] uppercase tracking-widest text-slate-400 font-semibold mb-1">Shipping Method</p>
-<p class="text-sm font-medium">Express Courier</p>
-</div>
-</div>
-</div>
-<!-- Product Thumbnails -->
-<div class="p-8">
-<p class="text-[11px] uppercase tracking-widest text-slate-400 font-semibold mb-6">Your Items</p>
-<div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-4">
-<div class="group relative">
-<div class="aspect-square bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden border border-slate-200/50 dark:border-slate-700/50">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Bohemian beaded necklace with turquoise and wooden beads" src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"/>
-</div>
-<div class="mt-2 text-[12px] font-medium text-slate-600 dark:text-slate-400 truncate">Bohemian Dreams</div>
-</div>
-<div class="group relative">
-<div class="aspect-square bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden border border-slate-200/50 dark:border-slate-700/50">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Wire-wrapped earrings with glass beads" src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"/>
-</div>
-<div class="mt-2 text-[12px] font-medium text-slate-600 dark:text-slate-400 truncate">Wire Elegance</div>
-</div>
-<div class="group relative">
-<div class="aspect-square bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden border border-slate-200/50 dark:border-slate-700/50">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Macramé bracelet with natural stone beads" src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"/>
-</div>
-<div class="mt-2 text-[12px] font-medium text-slate-600 dark:text-slate-400 truncate">Macramé Harmony</div>
-</div>
-</div>
-</div>
-<div class="p-8 bg-slate-50 dark:bg-slate-800/30 border-t border-slate-100 dark:border-slate-800">
-<div class="flex flex-col sm:flex-row justify-between items-center gap-6">
-<div class="text-sm">
-<span class="text-slate-500">Total Charged:</span>
-<span class="ml-2 font-bold text-lg">₹2,850</span>
-</div>
-<button onclick="downloadReceipt()" class="text-primary text-sm font-semibold hover:underline flex items-center gap-1">
+                        </div>
+                        <div>
+                            <p class="text-[11px] uppercase tracking-widest text-slate-400 font-semibold mb-1">Estimated
+                                Delivery</p>
+                            <p class="text-sm font-medium">October 24, 2023</p>
+                        </div>
+                        <div>
+                            <p class="text-[11px] uppercase tracking-widest text-slate-400 font-semibold mb-1">Shipping
+                                Method</p>
+                            <p class="text-sm font-medium">Express Courier</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Thumbnails -->
+                <div class="p-8">
+                    <p class="text-[11px] uppercase tracking-widest text-slate-400 font-semibold mb-6">Your Items</p>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-4">
+                        <div class="group relative">
+                            <div
+                                class="aspect-square bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden border border-slate-200/50 dark:border-slate-700/50">
+                                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    data-alt="Bohemian beaded necklace with turquoise and wooden beads"
+                                    src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" />
+                            </div>
+                            <div class="mt-2 text-[12px] font-medium text-slate-600 dark:text-slate-400 truncate">
+                                Bohemian Dreams</div>
+                        </div>
+                        <div class="group relative">
+                            <div
+                                class="aspect-square bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden border border-slate-200/50 dark:border-slate-700/50">
+                                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    data-alt="Wire-wrapped earrings with glass beads"
+                                    src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" />
+                            </div>
+                            <div class="mt-2 text-[12px] font-medium text-slate-600 dark:text-slate-400 truncate">Wire
+                                Elegance</div>
+                        </div>
+                        <div class="group relative">
+                            <div
+                                class="aspect-square bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden border border-slate-200/50 dark:border-slate-700/50">
+                                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    data-alt="Macramé bracelet with natural stone beads"
+                                    src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" />
+                            </div>
+                            <div class="mt-2 text-[12px] font-medium text-slate-600 dark:text-slate-400 truncate">
+                                Macramé Harmony</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8 bg-slate-50 dark:bg-slate-800/30 border-t border-slate-100 dark:border-slate-800">
+                    <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
+                        <div class="text-sm">
+                            <span class="text-slate-500">Total Charged:</span>
+                            <span class="ml-2 font-bold text-lg">₹2,850</span>
+                        </div>
+                        <button onclick="downloadReceipt()"
+                            class="text-primary text-sm font-semibold hover:underline flex items-center gap-1">
                             Download Receipt
                             <span class="material-symbols-outlined text-[16px]">download</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Next Steps -->
-<div class="w-full mt-16">
-<h3 class="text-center text-sm font-semibold uppercase tracking-[0.2em] text-slate-400 mb-8">Next Steps</h3>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-<div class="p-8 rounded-xl bg-white dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-800/60 text-center hover:border-primary/50 transition-colors">
-<span class="material-symbols-outlined text-primary mb-4 text-[32px]">local_shipping</span>
-<h4 class="font-bold mb-2">Track Shipping</h4>
-<p class="text-sm text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">Follow your package journey in real-time as it makes its way to you.</p>
-<button onclick="openLiveMap()" class="w-full bg-primary text-white py-3 px-6 rounded-lg font-bold text-sm tracking-wide hover:opacity-90 transition-opacity">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Next Steps -->
+            <div class="w-full mt-16">
+                <h3 class="text-center text-sm font-semibold uppercase tracking-[0.2em] text-slate-400 mb-8">Next Steps
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div
+                        class="p-8 rounded-xl bg-white dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-800/60 text-center hover:border-primary/50 transition-colors">
+                        <span class="material-symbols-outlined text-primary mb-4 text-[32px]">local_shipping</span>
+                        <h4 class="font-bold mb-2">Track Shipping</h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">Follow your package
+                            journey in real-time as it makes its way to you.</p>
+                        <button onclick="openLiveMap()"
+                            class="w-full bg-primary text-white py-3 px-6 rounded-lg font-bold text-sm tracking-wide hover:opacity-90 transition-opacity">
                             View Live Map
                         </button>
-</div>
-<div class="p-8 rounded-xl bg-white dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-800/60 text-center hover:border-primary/50 transition-colors">
-<span class="material-symbols-outlined text-primary mb-4 text-[32px]">app_registration</span>
-<h4 class="font-bold mb-2">Create an Account</h4>
-<p class="text-sm text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">Save your details for a faster checkout next time and manage returns.</p>
-<button onclick="window.location.href='profile.html'" class="w-full border border-slate-200 dark:border-slate-700 py-3 px-6 rounded-lg font-bold text-sm tracking-wide hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                    </div>
+                    <div
+                        class="p-8 rounded-xl bg-white dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-800/60 text-center hover:border-primary/50 transition-colors">
+                        <span class="material-symbols-outlined text-primary mb-4 text-[32px]">app_registration</span>
+                        <h4 class="font-bold mb-2">Create an Account</h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">Save your details for
+                            a faster checkout next time and manage returns.</p>
+                        <button onclick="window.location.href='profile.html'"
+                            class="w-full border border-slate-200 dark:border-slate-700 py-3 px-6 rounded-lg font-bold text-sm tracking-wide hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
                             Register Now
                         </button>
-</div>
-</div>
-</div>
-<!-- Footer Action -->
-<div class="mt-20 mb-10 text-center">
-<a class="inline-flex items-center gap-2 text-slate-500 hover:text-primary transition-colors text-sm font-medium" href="index.html">
-<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Action -->
+            <div class="mt-20 mb-10 text-center">
+                <a class="inline-flex items-center gap-2 text-slate-500 hover:text-primary transition-colors text-sm font-medium"
+                    href="index.html">
+                    <span class="material-symbols-outlined text-[18px]">arrow_back</span>
                     Continue Shopping
                 </a>
-</div>
-</div>
-</main>
-<footer class="py-12 px-6 border-t border-slate-200/50 dark:border-slate-800/50">
-<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-<p class="text-slate-400 text-xs font-medium uppercase tracking-widest">© 2023 The Vrinda Creation. All rights reserved.</p>
-<div class="flex gap-8">
-<a class="text-xs font-medium text-slate-400 hover:text-primary uppercase tracking-widest" href="index.html">Privacy</a>
-<a class="text-xs font-medium text-slate-400 hover:text-primary uppercase tracking-widest" href="index.html">Terms</a>
-<a class="text-xs font-medium text-slate-400 hover:text-primary uppercase tracking-widest" href="index.html">Support</a>
-</div>
-</div>
-</footer>
+            </div>
+        </div>
+    </main>
+    <footer class="py-12 px-6 border-t border-slate-200/50 dark:border-slate-800/50">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <p class="text-slate-400 text-xs font-medium uppercase tracking-widest">© 2023 The Vrinda Creation. All
+                rights reserved.</p>
+            <div class="flex gap-8">
+                <a class="text-xs font-medium text-slate-400 hover:text-primary uppercase tracking-widest"
+                    href="index.html">Privacy</a>
+                <a class="text-xs font-medium text-slate-400 hover:text-primary uppercase tracking-widest"
+                    href="index.html">Terms</a>
+                <a class="text-xs font-medium text-slate-400 hover:text-primary uppercase tracking-widest"
+                    href="index.html">Support</a>
+            </div>
+        </div>
+    </footer>
     <script src="main.js"></script>
-</body></html>
+</body>
+
+</html>

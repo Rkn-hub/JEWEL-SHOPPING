@@ -1,5 +1,16 @@
 ﻿<!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
+<script>
+    (function () {
+        const savedTheme = localStorage.getItem('vrindaTheme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.add('light');
+        }
+    })();
+</script>
 
 <head>
     <meta charset="utf-8" />
@@ -68,7 +79,7 @@
                 <span>Bracelets</span>
             </nav>
             <div class="flex items-center gap-2">
-                <button onclick="toggleDarkMode()" 
+                <button onclick="toggleDarkMode()"
                     class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-900 dark:text-white transition-colors"
                     title="Toggle theme">
                     <span class="material-symbols-outlined !text-[20px] dark:hidden">dark_mode</span>
@@ -107,7 +118,8 @@
                         </button>
                     </div>
                     <div class="flex-1 overflow-y-auto px-6 py-6 cart-scroll">
-                        <ul class="-my-6 divide-y divide-gray-100/50 dark:divide-white/10" role="list" id="cartItemsList">
+                        <ul class="-my-6 divide-y divide-gray-100/50 dark:divide-white/10" role="list"
+                            id="cartItemsList">
                             <!-- Cart items will be dynamically rendered here -->
                         </ul>
                     </div>

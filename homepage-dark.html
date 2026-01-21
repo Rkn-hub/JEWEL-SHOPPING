@@ -1,5 +1,16 @@
 ﻿<!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
+<script>
+    (function () {
+        const savedTheme = localStorage.getItem('vrindaTheme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.add('light');
+        }
+    })();
+</script>
 
 <head>
     <meta charset="utf-8" />
@@ -52,7 +63,8 @@
                     href="products.html">Collections</a>
                 <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="#">Beaded
                     Jewelry</a>
-                <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="products.html">Wire Art</a>
+                <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors"
+                    href="products.html">Wire Art</a>
                 <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="#">About
                     Artisans</a>
             </nav>
@@ -299,11 +311,14 @@
                 <div>
                     <h4 class="font-semibold mb-4">Collections</h4>
                     <div class="space-y-2">
-                        <a class="block text-slate-400 hover:text-white transition-colors" href="products.html">Beaded Necklaces</a>
-                        <a class="block text-slate-400 hover:text-white transition-colors" href="products.html">Wire Earrings</a>
+                        <a class="block text-slate-400 hover:text-white transition-colors" href="products.html">Beaded
+                            Necklaces</a>
+                        <a class="block text-slate-400 hover:text-white transition-colors" href="products.html">Wire
+                            Earrings</a>
                         <a class="block text-slate-400 hover:text-white transition-colors" href="#">Macramé
                             Bracelets</a>
-                        <a class="block text-slate-400 hover:text-white transition-colors" href="contact.html">Custom Orders</a>
+                        <a class="block text-slate-400 hover:text-white transition-colors" href="contact.html">Custom
+                            Orders</a>
                     </div>
                 </div>
                 <div>
@@ -311,9 +326,11 @@
                     <div class="space-y-2">
                         <a class="block text-slate-400 hover:text-white transition-colors" href="faq.html">Care
                             Instructions</a>
-                        <a class="block text-slate-400 hover:text-white transition-colors" href="faq.html">Shipping Info</a>
+                        <a class="block text-slate-400 hover:text-white transition-colors" href="faq.html">Shipping
+                            Info</a>
                         <a class="block text-slate-400 hover:text-white transition-colors" href="faq.html">Returns</a>
-                        <a class="block text-slate-400 hover:text-white transition-colors" href="contact.html">Contact Us</a>
+                        <a class="block text-slate-400 hover:text-white transition-colors" href="contact.html">Contact
+                            Us</a>
                     </div>
                 </div>
                 <div>

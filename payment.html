@@ -1,5 +1,16 @@
 ﻿<!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="en">
+<script>
+    (function () {
+        const savedTheme = localStorage.getItem('vrindaTheme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.add('light');
+        }
+    })();
+</script>
 
 <head>
     <meta charset="utf-8" />
@@ -45,7 +56,7 @@
                     <span>Secure Payment</span>
                     <span class="material-symbols-outlined text-green-600">lock</span>
                 </div>
-                <button onclick="toggleDarkMode()" 
+                <button onclick="toggleDarkMode()"
                     class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-900 dark:text-white transition-colors"
                     title="Toggle theme">
                     <span class="material-symbols-outlined !text-[20px] dark:hidden">dark_mode</span>

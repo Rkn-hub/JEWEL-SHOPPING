@@ -1,5 +1,16 @@
 ﻿<!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="en">
+<script>
+    (function () {
+        const savedTheme = localStorage.getItem('vrindaTheme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.add('light');
+        }
+    })();
+</script>
 
 <head>
     <meta charset="utf-8" />
@@ -37,56 +48,60 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
-        
+
         /* Search result animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .search-result-item {
             animation: fadeInUp 0.3s ease-out;
         }
-        
+
         /* Pulse animation for loading */
         @keyframes pulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 opacity: 1;
             }
+
             50% {
                 opacity: 0.5;
             }
         }
-        
+
         .animate-pulse {
             animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
-        
+
         /* Search input focus effects */
         #searchInput:focus {
             box-shadow: 0 0 0 3px rgba(224, 122, 95, 0.1);
         }
-        
+
         /* Custom scrollbar for search results */
         .search-scroll::-webkit-scrollbar {
             width: 6px;
         }
-        
+
         .search-scroll::-webkit-scrollbar-track {
             background: transparent;
         }
-        
+
         .search-scroll::-webkit-scrollbar-thumb {
             background: #cbd5e1;
             border-radius: 3px;
         }
-        
+
         .search-scroll::-webkit-scrollbar-thumb:hover {
             background: #94a3b8;
         }
@@ -117,7 +132,7 @@
                     href="contact.html">Contact</a>
             </nav>
             <div class="flex items-center gap-2">
-                <button onclick="toggleDarkMode()" 
+                <button onclick="toggleDarkMode()"
                     class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-900 dark:text-white transition-colors"
                     title="Toggle theme">
                     <span class="material-symbols-outlined !text-[20px] dark:hidden">dark_mode</span>
@@ -127,7 +142,8 @@
                     class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-900 dark:text-white transition-colors relative">
                     <span class="material-symbols-outlined !text-[20px]">shopping_bag</span>
                 </a>
-                <a href="profile.html" class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-900 dark:text-white transition-colors">
+                <a href="profile.html"
+                    class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-900 dark:text-white transition-colors">
                     <span class="material-symbols-outlined !text-[20px]">person</span>
                 </a>
             </div>
@@ -154,13 +170,15 @@
 
             <!-- Search Filters -->
             <div id="searchFilters" class="mb-8 hidden">
-                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-700">
+                <div
+                    class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-700">
                     <h3 class="font-bold mb-4">Filter Results</h3>
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                         <!-- Category Filter -->
                         <div>
                             <label class="block text-sm font-medium mb-2">Category</label>
-                            <select id="categoryFilter" class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
+                            <select id="categoryFilter"
+                                class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
                                 <option value="">All Categories</option>
                                 <option value="necklaces">Necklaces</option>
                                 <option value="earrings">Earrings</option>
@@ -168,11 +186,12 @@
                                 <option value="rings">Rings</option>
                             </select>
                         </div>
-                        
+
                         <!-- Material Filter -->
                         <div>
                             <label class="block text-sm font-medium mb-2">Material</label>
-                            <select id="materialFilter" class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
+                            <select id="materialFilter"
+                                class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
                                 <option value="">All Materials</option>
                                 <option value="glass">Glass Beads</option>
                                 <option value="wood">Wooden Beads</option>
@@ -181,11 +200,12 @@
                                 <option value="ceramic">Ceramic</option>
                             </select>
                         </div>
-                        
+
                         <!-- Price Filter -->
                         <div>
                             <label class="block text-sm font-medium mb-2">Price Range</label>
-                            <select id="priceFilter" class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
+                            <select id="priceFilter"
+                                class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
                                 <option value="">All Prices</option>
                                 <option value="0-500">₹0 - ₹500</option>
                                 <option value="500-1000">₹500 - ₹1,000</option>
@@ -193,11 +213,12 @@
                                 <option value="2000+">₹2,000+</option>
                             </select>
                         </div>
-                        
+
                         <!-- Sort Filter -->
                         <div>
                             <label class="block text-sm font-medium mb-2">Sort By</label>
-                            <select id="sortFilter" class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
+                            <select id="sortFilter"
+                                class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
                                 <option value="relevance">Relevance</option>
                                 <option value="price-low">Price: Low to High</option>
                                 <option value="price-high">Price: High to Low</option>
@@ -206,12 +227,14 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="mt-4 flex gap-3">
-                        <button onclick="applyFilters()" class="bg-primary text-white px-6 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors">
+                        <button onclick="applyFilters()"
+                            class="bg-primary text-white px-6 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors">
                             Apply Filters
                         </button>
-                        <button onclick="clearFilters()" class="border border-slate-200 dark:border-slate-700 px-6 py-2 rounded-lg font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                        <button onclick="clearFilters()"
+                            class="border border-slate-200 dark:border-slate-700 px-6 py-2 rounded-lg font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                             Clear All
                         </button>
                     </div>
@@ -224,15 +247,16 @@
                     <h2 class="text-2xl font-bold">Search Results</h2>
                     <span id="resultsCount" class="text-slate-600 dark:text-slate-400"></span>
                 </div>
-                
+
                 <!-- Results Grid -->
                 <div id="resultsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
                     <!-- Results will be populated here -->
                 </div>
-                
+
                 <!-- Load More Button -->
                 <div class="text-center">
-                    <button id="loadMoreBtn" onclick="loadMoreResults()" class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white px-8 py-3 rounded-lg font-medium transition-colors">
+                    <button id="loadMoreBtn" onclick="loadMoreResults()"
+                        class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white px-8 py-3 rounded-lg font-medium transition-colors">
                         Load More Results
                     </button>
                 </div>
@@ -240,12 +264,15 @@
 
             <!-- No Results -->
             <div id="noResults" class="hidden text-center py-12">
-                <div class="w-24 h-24 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div
+                    class="w-24 h-24 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-6">
                     <span class="material-symbols-outlined text-slate-400 text-[48px]">search_off</span>
                 </div>
                 <h3 class="text-2xl font-bold mb-4">No Results Found</h3>
-                <p class="text-slate-600 dark:text-slate-400 mb-6">We couldn't find any products matching your search. Try different keywords or browse our collections.</p>
-                <a href="products.html" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors">
+                <p class="text-slate-600 dark:text-slate-400 mb-6">We couldn't find any products matching your search.
+                    Try different keywords or browse our collections.</p>
+                <a href="products.html"
+                    class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors">
                     <span>Browse All Products</span>
                     <span class="material-symbols-outlined !text-[20px]">arrow_forward</span>
                 </a>

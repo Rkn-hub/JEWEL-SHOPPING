@@ -1,5 +1,16 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="en">
+<script>
+    (function () {
+        const savedTheme = localStorage.getItem('vrindaTheme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.add('light');
+        }
+    })();
+</script>
 
 <head>
     <meta charset="utf-8" />
@@ -45,8 +56,15 @@
 
         /* Floating animation */
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         .float-animation {
@@ -55,11 +73,12 @@
     </style>
 </head>
 
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased min-h-screen bg-pattern">
-    
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased min-h-screen bg-pattern">
+
     <!-- Theme Toggle -->
     <div class="fixed top-6 right-6 z-50">
-        <button onclick="toggleDarkMode()" 
+        <button onclick="toggleDarkMode()"
             class="flex items-center justify-center size-12 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 text-slate-900 dark:text-white transition-all shadow-lg"
             title="Toggle theme">
             <span class="material-symbols-outlined !text-[20px] dark:hidden">dark_mode</span>
@@ -73,7 +92,8 @@
             <!-- Logo and Header -->
             <div class="text-center mb-8">
                 <div class="flex justify-center mb-6">
-                    <div class="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center shadow-lg float-animation">
+                    <div
+                        class="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center shadow-lg float-animation">
                         <img src="logo.png" alt="The Vrinda Creation Logo" class="h-12 w-12 object-contain">
                     </div>
                 </div>
@@ -82,7 +102,8 @@
             </div>
 
             <!-- Login Form -->
-            <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-slate-200 dark:border-slate-700">
+            <div
+                class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-slate-200 dark:border-slate-700">
                 <form onsubmit="handleLogin(event)" class="space-y-6">
                     <!-- Email Field -->
                     <div>
@@ -93,7 +114,8 @@
                             <input type="email" id="email" name="email" required
                                 class="w-full pl-12 pr-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors"
                                 placeholder="admin@vrindacreation.com">
-                            <span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-[20px]">email</span>
+                            <span
+                                class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-[20px]">email</span>
                         </div>
                     </div>
 
@@ -106,9 +128,12 @@
                             <input type="password" id="password" name="password" required
                                 class="w-full pl-12 pr-12 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors"
                                 placeholder="Enter your password">
-                            <span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-[20px]">lock</span>
-                            <button type="button" onclick="togglePassword()" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
-                                <span id="passwordToggleIcon" class="material-symbols-outlined text-[20px]">visibility</span>
+                            <span
+                                class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-[20px]">lock</span>
+                            <button type="button" onclick="togglePassword()"
+                                class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+                                <span id="passwordToggleIcon"
+                                    class="material-symbols-outlined text-[20px]">visibility</span>
                             </button>
                         </div>
                     </div>
@@ -116,7 +141,8 @@
                     <!-- Remember Me -->
                     <div class="flex items-center justify-between">
                         <label class="flex items-center">
-                            <input type="checkbox" class="rounded border-slate-300 dark:border-slate-600 text-primary focus:ring-primary focus:ring-offset-0">
+                            <input type="checkbox"
+                                class="rounded border-slate-300 dark:border-slate-600 text-primary focus:ring-primary focus:ring-offset-0">
                             <span class="ml-2 text-sm text-slate-600 dark:text-slate-400">Remember me</span>
                         </label>
                         <a href="#" class="text-sm text-primary hover:text-primary/80 transition-colors">
@@ -125,7 +151,7 @@
                     </div>
 
                     <!-- Login Button -->
-                    <button type="submit" 
+                    <button type="submit"
                         class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
                         <span class="material-symbols-outlined text-[20px]">login</span>
                         <span>Sign In</span>
@@ -133,12 +159,14 @@
                 </form>
 
                 <!-- Demo Credentials -->
-                <div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                <div
+                    class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
                     <div class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-blue-600 text-[20px] mt-0.5">info</span>
                         <div>
                             <h4 class="text-sm font-medium text-blue-800 dark:text-blue-400 mb-1">Demo Credentials</h4>
-                            <p class="text-xs text-blue-700 dark:text-blue-300 mb-2">Use these credentials to access the admin dashboard:</p>
+                            <p class="text-xs text-blue-700 dark:text-blue-300 mb-2">Use these credentials to access the
+                                admin dashboard:</p>
                             <div class="text-xs text-blue-700 dark:text-blue-300 space-y-1">
                                 <div><strong>Email:</strong> admin@vrindacreation.com</div>
                                 <div><strong>Password:</strong> admin123</div>
@@ -153,7 +181,8 @@
                 <p class="text-sm text-slate-500 dark:text-slate-400">
                     © 2024 The Vrinda Creation. All rights reserved.
                 </p>
-                <a href="index.html" class="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors mt-2">
+                <a href="index.html"
+                    class="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors mt-2">
                     <span class="material-symbols-outlined text-[16px]">arrow_back</span>
                     Back to Website
                 </a>
@@ -166,7 +195,7 @@
         function togglePassword() {
             const passwordInput = document.getElementById('password');
             const toggleIcon = document.getElementById('passwordToggleIcon');
-            
+
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
                 toggleIcon.textContent = 'visibility_off';
@@ -179,15 +208,15 @@
         // Handle login form submission
         function handleLogin(event) {
             event.preventDefault();
-            
+
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            
+
             // Demo credentials check
             if (email === 'admin@vrindacreation.com' && password === 'admin123') {
                 // Show success message
                 showNotification('Login successful! Redirecting to dashboard...', 2000);
-                
+
                 // Redirect to admin dashboard after a short delay
                 setTimeout(() => {
                     window.location.href = 'admin-dashboard.html';
@@ -195,7 +224,7 @@
             } else {
                 // Show error message
                 showNotification('Invalid credentials. Please use the demo credentials provided.', 4000);
-                
+
                 // Shake the form
                 const form = event.target;
                 form.classList.add('animate-pulse');
@@ -209,7 +238,7 @@
         function toggleDarkMode() {
             const html = document.documentElement;
             const isDark = html.classList.contains('dark');
-            
+
             if (isDark) {
                 html.classList.remove('dark');
                 html.classList.add('light');
@@ -225,7 +254,7 @@
         function initTheme() {
             const savedTheme = localStorage.getItem('vrindaTheme');
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
+
             if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
                 document.documentElement.classList.add('dark');
                 document.documentElement.classList.remove('light');
@@ -240,13 +269,13 @@
             // Remove existing notification
             const existing = document.querySelector('.vrinda-notification');
             if (existing) existing.remove();
-            
+
             const notification = document.createElement('div');
             notification.className = 'vrinda-notification fixed top-6 left-1/2 -translate-x-1/2 bg-primary text-white px-6 py-3 rounded-lg shadow-lg z-50 transition-all duration-300';
             notification.textContent = message;
-            
+
             document.body.appendChild(notification);
-            
+
             setTimeout(() => {
                 notification.style.opacity = '0';
                 notification.style.transform = 'translate(-50%, -20px)';
@@ -257,7 +286,7 @@
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', () => {
             initTheme();
-            
+
             // Auto-fill demo credentials for convenience
             document.getElementById('email').value = 'admin@vrindacreation.com';
             document.getElementById('password').value = 'admin123';
