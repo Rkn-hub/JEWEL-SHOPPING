@@ -772,9 +772,9 @@ function setupFAQAccordion() {
 
 function setupProductDetailPage() {
     // Quantity controls
-    const minusBtn = document.querySelector('button[onclick*="decreaseQuantity"]');
-    const plusBtn = document.querySelector('button[onclick*="increaseQuantity"]');
-    const quantityInput = document.querySelector('input[type="number"]');
+    const minusBtn = document.getElementById('quantity-minus');
+    const plusBtn = document.getElementById('quantity-plus');
+    const quantityInput = document.getElementById('quantity-input');
 
     if (minusBtn && plusBtn && quantityInput) {
         minusBtn.addEventListener('click', () => {
@@ -1958,6 +1958,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.includes('profile.html')) {
         updateProfilePageData();
         fetchUserOrders();
+    }
+
+    // Initialize product detail page interaction
+    if (window.location.pathname.includes('product-detail.html')) {
+        setupProductDetailPage();
     }
 });
 
